@@ -20,6 +20,12 @@ export default function SignUp() {
                     <Input color="success" type="text"  />
                 </Control>
             </Field>
+            <Field>
+                <Label>Retype Password</Label>
+                <Control>
+                    <Input color="success" type="text"  />
+                </Control>
+            </Field>
             <Field kind="group">
                 <Control>
                     <Button type="primary">Submit</Button>
