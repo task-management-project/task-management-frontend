@@ -5,7 +5,7 @@ const AUTHETICATION_INITIAL_STATE = {
   pending: true
 }
 
-export const authentication = (state = AUTHETICATION_INITIAL_STATE, {type, payload}) => {
+const authentication = (state = AUTHETICATION_INITIAL_STATE, {type, payload}) => {
   switch(type) {
     case SET_AUTHENTICATION:
       return {user: payload, pending: false}
@@ -13,3 +13,5 @@ export const authentication = (state = AUTHETICATION_INITIAL_STATE, {type, paylo
     return state
   }
 } // Call this with the information from the server, not locally.
+
+export default authentication
