@@ -1,51 +1,72 @@
-// import React from 'react'
-// import { Link } from 'react-router-dom'
-// import { connect } from 'react-redux'
-// import { bindActionCreators } from 'redux'
-// import { Heading, Box, Button, Form } from 'react-bulma-components'
-// const { Label, Field, Input, Control } = Form
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { Heading, Box, Button, Form } from 'react-bulma-components'
+const { Label, Field, Input, Control } = Form
 
 
-// const MemberTaskForm = { taskData }(
+class MemberTaskForm extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            task: '',
+            description: ""
+        }
+    }
 
-//     <Box>
-//         <Heading>Create New Task</Heading>
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
 
-//         <Field>
-//             <Label>Task</Label>
-//             <Control>
-//                 <Input color="success" type="text" value={taskData.task} />
-//             </Control>
-//         </Field>
-//         <Field>
-//             <Label>Description</Label>
-//             <Control>
-//                 <Input color="success" type="text" value={taskData.description} />
-//             </Control>
-//         </Field>
-//         <Field kind="group">
-//             <Control>
-//                 <Button type="primary">Submit</Button>
-//             </Control>
-//             <Control>
-//                 <Button color="link">Cancel</Button>
-//             </Control>
-//         </Field>
-//         <Link to={'/toggle'}>Go Back</Link >
-//     </Box>
+    handleSubmit = (e) => {
 
-// )
+    }
+    render() {
+        return (
+            <Box>
+                <Heading>Create New Task</Heading>
+            <form>
+                <Field>
+                    <Label>Task</Label>
+                    <Control>
+                        <Input onChange={this.handleChange} color="success" type="text" value={this.state.task} />
+                    </Control>
+                </Field>
+                <Field>
+                    <Label>Description</Label>
+                    <Control>
+                        <Input onChange={this.handleChange} color="success" type="text" value={this.state.description} />
+                    </Control>
+                </Field>
+                <Field kind="group">
+                    <Control>
+                        <Button type="primary">Submit</Button>
+                    </Control>
+                    <Control>
+                        <Button color="link">Cancel</Button>
+                    </Control>
+                </Field>
+                </form>
+                <Link to={'/toggle'}>Go Back</Link >
+            </Box>
 
-// const mapStateToProps = state => ({
-// taskData: state.taskData
-// })
+        )
+    }
+}
 
-// const mapDispatchToProps = dispatch => bindActionCreators({
+const mapStateToProps = state => ({
 
-// }, dispatch)
+})
 
-// export default connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )(MemberTaskForm);
+const mapDispatchToProps = dispatch => bindActionCreators({
+
+}, dispatch)
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MemberTaskForm);
 
