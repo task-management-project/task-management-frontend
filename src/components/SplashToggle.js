@@ -7,7 +7,7 @@ export default function SplashToggle() {
         <div>
             <Heading>****Choose your Role****</Heading>
             <Box>
-                <Link to={'/memberdash'}>
+                <Link to={'/membertaskform'}>
                     <Button>Member</Button>
                 </Link>
             </Box>

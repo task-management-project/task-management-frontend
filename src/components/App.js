@@ -7,6 +7,7 @@ import SplashToggle from './SplashToggle'
 import MemberDashboard from './MemberDashboard'
 import ManagerDashboard from './ManagerDashboard'
 import ManagerSelectTeam from './ManagerSelectTeam';
+import MemberTaskForm from './MemberTaskForm'
 
 export default function App(){
   return (
@@ -20,6 +21,7 @@ export default function App(){
           <Route exact path='/memberdash' component={ MemberDashboard } />
           <Route exact path='/managerdash' component={ ManagerDashboard } />
           <Route exact path='/managerselectteam' component={ ManagerSelectTeam} />
+          <Route exact path='/membertaskform' component={ MemberTaskForm} />
         </Switch>
       </div>
     </BrowserRouter>

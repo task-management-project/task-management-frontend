@@ -1,35 +1,44 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { Box, Heading, Dropdown } from 'react-bulma-components'
 const { Item } = Dropdown
 
 
-export default class ManagerSelectTeam extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            selected: false
-        }
-    }
-    onChange = () => {
+const ManagerSelectTeam = ({ things }) => (
 
-    }
-    render() {
-        return (
-            <Box>
-                <Heading>Assemble Your Team</Heading>
-                <Item value={this.state.selected} onChange={this.onChange} color="info" {...this.props}>
-                    <Item value="item">Item item</Item>
-                    <Item value="other">Other Item item</Item>
-                    <Item value="active">Active Item item</Item>
-                    <Item value="other 2">Other Item item</Item>
-                    <Item.Divider />
-                    <Item value="divider">With divider</Item>
-                </Item>
-                <Link to={'./toggle'}> Go Back </Link>
+    <Box>
+        <Heading>Assemble Your Team</Heading>
+        {/* change dropdown to map that populates with list of members */}
+       <Dropdown>
+            <Item value="item">Person 1</Item>
+            <Item value="other">Person 2</Item>
+            <Item value="active">Person 3</Item>
+            <Item value="other 2">Person 4</Item>
+            
+        </Dropdown>
+        <br/> <br/>
+        <Link to={'./toggle'}> Go Back </Link>
+        <br/> <br/>
+        <Link to={'./managerdash'}>Go to Manager Dashboard</Link>
+    </Box>
 
-            </Box>
 
-        )
-    }
-} 
+)
+
+const mapStateToProps = state => ({
+  
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    
+}, dispatch)
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ManagerSelectTeam);
+
+
+
