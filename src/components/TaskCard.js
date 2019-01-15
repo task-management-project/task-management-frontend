@@ -3,11 +3,10 @@ import {Card} from 'react-bulma-components'
 
 
 
-export default function MemberCard() {
+export default function TaskCard() {
     return (
         <Card>
-            Member Here
-            Task Name
+            Task Name <br/>
             Task Description
         </Card>
     )

@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Box, Heading, Tile } from 'react-bulma-components'
+import TaskCard from './TaskCard'
 
 
 const MemberDashboard = ({ things }) => (
     <div>
         <Heading>Task Overview</Heading>
-        {/* replace below with actual ManagerCards */}
+        {/* replace below with actual TaskCards */}
+        {<TaskCard/>}
         <Box>
       <Tile kind="ancestor">
         <Tile size={8} vertical>
