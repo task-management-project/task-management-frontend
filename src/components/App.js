@@ -8,6 +8,7 @@ import MemberDashboard from './MemberDashboard'
 import ManagerDashboard from './ManagerDashboard'
 import ManagerSelectTeam from './ManagerSelectTeam';
 import MemberTaskForm from './MemberTaskForm'
+import MemberFocus from './MemberFocus'
 
 export default function App(){
   return (
@@ -22,6 +23,7 @@ export default function App(){
           <Route exact path='/managerdash' component={ ManagerDashboard } />
           <Route exact path='/managerselectteam' component={ ManagerSelectTeam} />
           <Route exact path='/membertaskform' component={ MemberTaskForm} />
+          <Route exact path='/focus' component={ MemberFocus} />
         </Switch>
       </div>
     </BrowserRouter>

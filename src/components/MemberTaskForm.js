@@ -32,13 +32,13 @@ class MemberTaskForm extends Component {
                 <Field>
                     <Label>Task</Label>
                     <Control>
-                        <Input onChange={this.handleChange} color="success" type="text" value={this.state.task} />
+                        <Input onChange={this.handleChange} color="success" type="text" name="task" value={this.state.task} />
                     </Control>
                 </Field>
                 <Field>
                     <Label>Description</Label>
                     <Control>
-                        <Input onChange={this.handleChange} color="success" type="text" value={this.state.description} />
+                        <Input onChange={this.handleChange} color="success" type="text" name="description" value={this.state.description} />
                     </Control>
                 </Field>
                 <Field kind="group">
@@ -50,7 +50,13 @@ class MemberTaskForm extends Component {
                     </Control>
                 </Field>
                 </form>
+                <br/>
                 <Link to={'/toggle'}>Go Back</Link >
+                <br/>
+                <Link to={'/memberdash'}>Task Overview</Link >
+                <br/>
+                <Link to={'/focus'}>Task Focus</Link >
+
             </Box>
 
         )
