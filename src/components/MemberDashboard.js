@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Box, Heading, Tile } from 'react-bulma-components'
 import TaskCard from './TaskCard'
-import { getMemberTasks } from '../actions/tasks'
+import { getMemberTasks, deleteTask } from '../actions/tasks'
 
 
 class MemberDashboard extends Component {
@@ -15,23 +15,27 @@ class MemberDashboard extends Component {
 
   }
 
-  componentDidMount() {
-    console.log(this.props.userId)
+  componentDidMount = () => {
     this.props.getMemberTasks(this.props.userId)
-    console.log(this.props.tasks)
+
+   
   }
   render() {
+
     return (
       <div>
         <Heading>Task Overview</Heading>
-        {/* replace below with actual TaskCards */}
-
+        { console.log("my log here:", this.props.tasks)}
+        
         <Box>
           <Tile kind="ancestor">
             <Tile size={12}>
-            {<TaskCard />}
-            {<TaskCard />}
-            {<TaskCard />}
+
+              {
+                this.props.tasks.map(task => {
+                  return <TaskCard key={task.id} {...task} deleteTask={() => this.props.deleteTask(this.props.userId, task.id)} />
+                })
+              }
             </Tile>
           </Tile>
         </Box>
@@ -56,7 +60,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getMemberTasks: getMemberTasks
+  getMemberTasks: getMemberTasks,
+  deleteTask: deleteTask
 
 }, dispatch)
 
