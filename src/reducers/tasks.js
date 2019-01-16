@@ -1,10 +1,10 @@
-import {GET_ALL_TASKS, ADD_TASK, DELETE_TASK, UPDATE_TASK} from '../actions/tasks'
+import {GET_MEMBER_TASKS, ADD_TASK, DELETE_TASK, UPDATE_TASK} from '../actions/tasks'
 
 const initialState = []
 
 const tasks = (state = initialState, {type, payload}) => {
   switch(type) {
-    case GET_ALL_TASKS:
+    case GET_MEMBER_TASKS:
       return payload
     case ADD_TASK:
       return [...state, payload]
