@@ -71,9 +71,11 @@ class App extends Component {
   }
 }
 
+// const mapStateToProps = (state) => ({authentication: state.authentication})
+
 const mapDispatchToProps = dispatch =>
   bindActionCreators({
-    setAuthentication
+    setAuthentication: setAuthentication
   }, dispatch)
 
 export default connect(null, mapDispatchToProps)(App)

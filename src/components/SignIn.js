@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import { Heading, Box, Button, Form } from 'react-bulma-components'
 import {connect} from 'react-redux'
-import axios from 'axios'
+import request from '../utils/request'
+import {setAuthentication} from '../actions/authentication'
+import { bindActionCreators } from 'redux';
+
 const { Label, Field, Input, Control } = Form
+
 
 
 class SignIn extends Component {
@@ -26,19 +30,20 @@ class SignIn extends Component {
         
         const {username, password} = e.target
 
-        axios.post('http://localhost:5000/login', {
+        request('/login', 'post', {
             username: username.value,
             password: password.value })
         .then(response => {
             this.setState({ showErrorMessage: false })
-            
             localStorage.setItem('token', response.data.token)
+            return request('/login')
         })
         .then(response => {
-            this.props.setAuthentication(response.data)
-            this.props.history.push('/')
+            setAuthentication(response.data)
+            this.props.history.push('/toggle')
         })
         .catch(error => {
+            console.log(error)
             this.setState({showErrorMessage: true})
         })
     }
@@ -75,6 +80,8 @@ class SignIn extends Component {
 
 const mapStateToProps = (state) => ({authentication: state.authentication})
 
-const mapDispatchToProps = (dispatch) => ({dispatch})
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+    setAuthentication: setAuthentication
+}, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

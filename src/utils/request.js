@@ -1,11 +1,11 @@
 import axios from 'axios'
-
+const baseURL = 'http://localhost:5000'
 
 const request = (path, method = 'get', body = null) => {
 
   const token = localStorage.getItem('token')
 
-  return axios(`http://localhost:5000${path}`, {
+  return axios(`${baseURL}${path}`, {
     method: method,
     headers: {
       'Content-Type': 'application/json',
