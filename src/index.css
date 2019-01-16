@@ -22,3 +22,37 @@ code {
 .title{
   color: #00d1b2;
 }
+.navbar-item{
+  position: absolute;
+  right: 0;
+  margin-top:1%;
+  margin-right: 3%;
+}
+.navbar-brand{
+  margin-left: 3%;
+  margin-top: 1%;
+  font-size: 200%;
+}
+.topbtn{
+  margin-right: 7%;
+  text-align: center;
+}
+.title_signin{
+  color: #027564;
+  margin: 3%;
+  text-align: center;
+}
+.button .is-large{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.box .medium{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.coverbox{
+  padding-bottom: 6%;
+}

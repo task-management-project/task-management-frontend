@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import Landing from './Landing'
 import SignUp from './SignUp'
 import SignIn from './SignIn'
+import TopNav from './TopNav'
 import SplashToggle from './SplashToggle'
 import MemberDashboard from './MemberDashboard'
 import ManagerDashboard from './ManagerDashboard'
@@ -14,7 +15,7 @@ import MemberFocus from './MemberFocus'
 import AuthenticatedRoute from './Authentication'
 import { setAuthentication } from '../actions/authentication'
 import request from '../utils/request';
-import { Hero, Navbar, Button } from 'react-bulma-components'
+import { Hero, Button } from 'react-bulma-components'
 
 class App extends Component {
   componentDidMount(){
@@ -27,24 +28,9 @@ class App extends Component {
     <Hero color="primary" size="full-height">
     <BrowserRouter>
     <React.Fragment>
-      <Hero.Head>
-        <Navbar>
-          <Navbar.Item>
-            Task Manager
-          </Navbar.Item>
-          <Navbar.Item>
-            <Button>
-              Create
-            </Button>
-            <Button>
-              SignOut
-            </Button>
-          </Navbar.Item>
-        </Navbar>
-      </Hero.Head>
+      <TopNav />
       
       <Hero.Body className="hero_body">
-      
         <div>
           <Switch>
             <Route path='/signup' component={ SignUp } />
