@@ -13,11 +13,11 @@ import MemberTaskForm from './MemberTaskForm'
 import MemberFocus from './MemberFocus'
 import AuthenticatedRoute from './Authentication'
 import { setAuthentication } from '../actions/authentication'
-import Axios from 'axios';
+import request from '../utils/request';
 
 class App extends Component {
   componentDidMount(){
-    Axios.get('/auth/token')
+    request('/login')
     .then(response => this.props.setAuthentication(response.data))
     .catch(err => this.props.setAuthentication(null))
   }
