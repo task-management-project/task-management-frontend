@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function Landing() {
     return (
         <Box>
-            <Heading>Welcome to Task Manager!</Heading>
+            <Heading className="title_signin">Welcome to Task Manager!</Heading>
             <Box>
                 <Link to={`/signin`}>
                     <Button> Sign In</Button>

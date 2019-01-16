@@ -14,6 +14,7 @@ import MemberFocus from './MemberFocus'
 import AuthenticatedRoute from './Authentication'
 import { setAuthentication } from '../actions/authentication'
 import request from '../utils/request';
+import { Hero, Navbar, Button } from 'react-bulma-components'
 
 class App extends Component {
   componentDidMount(){
@@ -23,7 +24,27 @@ class App extends Component {
   }
   render() {
   return (
+    <Hero color="primary" size="full-height">
     <BrowserRouter>
+    <React.Fragment>
+      <Hero.Head>
+        <Navbar>
+          <Navbar.Item>
+            Task Manager
+          </Navbar.Item>
+          <Navbar.Item>
+            <Button>
+              Create
+            </Button>
+            <Button>
+              SignOut
+            </Button>
+          </Navbar.Item>
+        </Navbar>
+      </Hero.Head>
+      
+      <Hero.Body className="hero_body">
+      
         <div>
           <Switch>
             <Route path='/signup' component={ SignUp } />
@@ -37,7 +58,15 @@ class App extends Component {
             <Route path='/' component={ Landing }/>
           </Switch>
         </div>
+      
+      </Hero.Body>
+      
+      <Hero.Footer>
+
+      </Hero.Footer>
+      </React.Fragment>
       </BrowserRouter>
+    </Hero>
     )
   }
 }
