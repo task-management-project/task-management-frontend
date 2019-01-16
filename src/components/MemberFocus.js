@@ -2,18 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Box} from 'react-bulma-components'
+import { Box, Heading} from 'react-bulma-components'
+import TaskCard from './TaskCard'
 
+//adjust so displays active task
 
 const MemberFocus = () => (
     <div>
         <Box>
-            Insert Task Here
+            <Heading>Task Focus Zone</Heading>
+            <TaskCard/>
         </Box>
         
       
       <Link to={'./memberdash'}>
-        escape from focus
+        return to dashboard
       </Link>
 
     </div>
@@ -25,7 +28,7 @@ const MemberFocus = () => (
 
 
 const mapStateToProps = state => ({
-
+    userId: state.authentication.user.id
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

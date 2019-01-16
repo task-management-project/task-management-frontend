@@ -16,7 +16,8 @@ class MemberDashboard extends Component {
   }
 
   componentDidMount() {
-    this.props.getMemberTasks(2)
+    console.log(this.props.userId)
+    this.props.getMemberTasks(this.props.userId)
     console.log(this.props.tasks)
   }
   render() {
@@ -27,7 +28,7 @@ class MemberDashboard extends Component {
 
         <Box>
           <Tile kind="ancestor">
-            <Tile size={14}>
+            <Tile size={12}>
             {<TaskCard />}
             {<TaskCard />}
             {<TaskCard />}
@@ -50,7 +51,8 @@ class MemberDashboard extends Component {
 
 
 const mapStateToProps = state => ({
-  tasks: state.tasks
+  tasks: state.tasks,
+  userId: state.authentication.user.id
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
