@@ -16,7 +16,7 @@ class MemberDashboard extends Component {
   }
 
   componentDidMount() {
-   this.props.getMemberTasks(1)
+   this.props.getMemberTasks(2)
    console.log(this.props.tasks)
   }
   render() {
