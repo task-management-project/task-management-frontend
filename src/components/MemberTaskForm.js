@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { addTask } from '../actions/tasks'
 import { Heading, Box, Button, Form } from 'react-bulma-components'
 const { Label, Field, Input, Control } = Form
 
+// need to pass real user id into handleSubmit
 
 class MemberTaskForm extends Component {
     constructor(props) {
@@ -22,13 +24,15 @@ class MemberTaskForm extends Component {
     }
 
     handleSubmit = (e) => {
-
+        e.preventDefault()
+        addTask(2, this.state)
     }
+
     render() {
         return (
             <Box>
                 <Heading>Create New Task</Heading>
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <Field>
                     <Label>Task</Label>
                     <Control>
@@ -43,7 +47,7 @@ class MemberTaskForm extends Component {
                 </Field>
                 <Field kind="group">
                     <Control>
-                        <Button type="primary">Submit</Button>
+                        <Button  type="primary">Submit</Button>
                     </Control>
                     <Control>
                         <Button color="link">Cancel</Button>
@@ -68,7 +72,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-
+addTask: addTask
 }, dispatch)
 
 export default connect(
