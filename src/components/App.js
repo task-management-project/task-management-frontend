@@ -18,8 +18,10 @@ import request from '../utils/request';
 class App extends Component {
   componentDidMount(){
     request('/login')
-    .then(response => this.props.setAuthentication(response.data))
-    .catch(err => this.props.setAuthentication(null))
+    .then(response => setAuthentication(response.data))
+    .catch(err => {
+      console.log(err)
+      setAuthentication(null)})
   }
   render() {
   return (
