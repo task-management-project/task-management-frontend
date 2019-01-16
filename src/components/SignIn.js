@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { Heading, Box, Button, Form } from 'react-bulma-components'
+import {connect} from 'react-redux'
+import axios from 'axios'
 const { Label, Field, Input, Control } = Form
 
 
-export default class SignIn extends Component {
+class SignIn extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -21,7 +23,24 @@ export default class SignIn extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(e)
+        
+        const {username, password} = e.target
+
+        axios.post('http://localhost:5000/login', {
+            username: username.value,
+            password: password.value })
+        .then(response => {
+            this.setState({ showErrorMessage: false })
+            
+            localStorage.setItem('token', response.data.token)
+        })
+        .then(response => {
+            this.props.setAuthentication(response.data)
+            this.props.history.push('/')
+        })
+        .catch(error => {
+            this.setState({showErrorMessage: true})
+        })
     }
     render() {
         return (
@@ -53,3 +72,9 @@ export default class SignIn extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => ({authentication: state.authentication})
+
+const mapDispatchToProps = (dispatch) => ({dispatch})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
