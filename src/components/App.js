@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
 import Landing from './Landing'
 import SignUp from './SignUp'
 import SignIn from './SignIn'
@@ -9,25 +11,42 @@ import ManagerDashboard from './ManagerDashboard'
 import ManagerSelectTeam from './ManagerSelectTeam';
 import MemberTaskForm from './MemberTaskForm'
 import MemberFocus from './MemberFocus'
+import AuthenticatedRoute from './Authentication'
+import { setAuthentication } from '../actions/authentication'
+import request from '../utils/request';
 
-export default function App(){
+class App extends Component {
+  componentDidMount(){
+    request('/login')
+    .then(response => this.props.setAuthentication(response.data))
+    .catch(err => this.props.setAuthentication(null))
+  }
+  render() {
   return (
-  <BrowserRouter>
-      <div>
-        <Switch>
-          <Route exact path='/' component={ Landing }/>
-          <Route exact path='/signup' component={ SignUp } />
-          <Route exact path='/signin' component={ SignIn } />
-          <Route exact path='/toggle' component={ SplashToggle } />
-          <Route exact path='/memberdash' component={ MemberDashboard } />
-          <Route exact path='/managerdash' component={ ManagerDashboard } />
-          <Route exact path='/managerselectteam' component={ ManagerSelectTeam} />
-          <Route exact path='/membertaskform' component={ MemberTaskForm} />
-          <Route exact path='/focus' component={ MemberFocus} />
-        </Switch>
-      </div>
-    </BrowserRouter>
-  )
+    <BrowserRouter>
+        <div>
+          <Switch>
+            <Route path='/signup' component={ SignUp } />
+            <Route path='/signin' component={ SignIn } />
+            <AuthenticatedRoute path='/toggle' component={ SplashToggle } />
+            <AuthenticatedRoute path='/memberdash' component={ MemberDashboard } />
+            <AuthenticatedRoute path='/managerdash' component={ ManagerDashboard } />
+            <AuthenticatedRoute path='/managerselectteam' component={ ManagerSelectTeam} />
+            <AuthenticatedRoute path='/membertaskform' component={ MemberTaskForm} />
+            <AuthenticatedRoute path='/focus' component={ MemberFocus} />
+            <Route path='/' component={ Landing }/>
+          </Switch>
+        </div>
+      </BrowserRouter>
+    )
+  }
 }
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({
+    setAuthentication
+  }, dispatch)
+
+export default connect(null, mapDispatchToProps)(App)
 
 
