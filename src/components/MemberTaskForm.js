@@ -6,7 +6,6 @@ import { addTask } from '../actions/tasks'
 import { Heading, Box, Button, Form } from 'react-bulma-components'
 const { Label, Field, Input, Control } = Form
 
-// need to pass real user id into handleSubmit
 
 class MemberTaskForm extends Component {
     constructor(props) {
@@ -25,7 +24,7 @@ class MemberTaskForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        addTask(2, this.state)
+        addTask(this.props.userId, this.state)
     }
 
     render() {
@@ -68,7 +67,7 @@ class MemberTaskForm extends Component {
 }
 
 const mapStateToProps = state => ({
-
+    userId: state.authentication.user.id
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
