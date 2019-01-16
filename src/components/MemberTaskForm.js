@@ -11,7 +11,7 @@ class MemberTaskForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            task: '',
+            name: '',
             description: ""
         }
     }
@@ -24,7 +24,7 @@ class MemberTaskForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        addTask(this.props.userId, this.state)
+        this.props.addTask(this.props.userId, this.state)
     }
 
     render() {
@@ -35,7 +35,7 @@ class MemberTaskForm extends Component {
                 <Field>
                     <Label>Task</Label>
                     <Control>
-                        <Input onChange={this.handleChange} color="success" type="text" name="task" value={this.state.task} />
+                        <Input onChange={this.handleChange} color="success" type="text" name="name" value={this.state.name} />
                     </Control>
                 </Field>
                 <Field>

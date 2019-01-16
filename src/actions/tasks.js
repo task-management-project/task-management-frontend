@@ -20,9 +20,10 @@ export const getMemberTasks = (memberId) => {
 }
 
 export const addTask = (memberId, taskObj) => {
+  console.log(taskObj)
   return (dispatch) => {
     request(`/users/${memberId}/tasks`,'post', taskObj)
-      .then(result => dispatch({ type: ADD_TASK, payload: result.data }))
+      .then(result => dispatch({ type: ADD_TASK, payload: result.data.data }))
       .catch(err => console.log(err))
   }
 }
