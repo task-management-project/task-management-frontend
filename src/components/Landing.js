@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom'
 
 export default function Landing() {
     return (
-        <Box>
-            <Heading>Welcome to Task Manager!</Heading>
-            <Box>
+        <Box className="box coverbox">
+            <Heading>
+                <div className="title_signin">Welcome to Task Manager!</div>
+            </Heading>
+            <Box className="box medium">
                 <Link to={`/signin`}>
-                    <Button> Sign In</Button>
+                    <Button className="button is-primary is-large"> Sign In</Button>
                 </Link>
-            </Box>
-            <Box>
                 <Link to={`/signup`}>
-                    <Button> Sign Up</Button>
+                    <Button className="button is-primary is-large"> Sign Up</Button>
                 </Link>
             </Box>
         </Box >
