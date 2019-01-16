@@ -8,14 +8,14 @@ export default function Landing() {
             <Heading>
                 <div className="title_signin">Welcome to Task Manager!</div>
             </Heading>
-            <Box className="box medium">
-                <Link to={`/signin`}>
+            <div className='btnctr2'>
+                <Link to={`/signin`} className="btnctr">
                     <Button className="button is-primary is-large"> Sign In</Button>
                 </Link>
-                <Link to={`/signup`}>
+                <Link to={`/signup`} className="btnctr">
                     <Button className="button is-primary is-large"> Sign Up</Button>
                 </Link>
-            </Box>
+            </div>
         </Box >
     )
 }
