@@ -9,7 +9,7 @@ export default function TaskCard({name, description, thoughts, deleteTask}) {
     return (
 
         <Tile kind="parent">
-            <Tile renderAs="article" kind="child" notification color="success">
+            <Tile renderAs="article" kind="child" notification color="primary">
                 <div className="content">
                     <Heading>{name}</Heading>
                     <Heading subtitle>{description}</Heading>
