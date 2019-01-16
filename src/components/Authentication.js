@@ -13,11 +13,11 @@ const Authentication = props => {
   } = props
 
   if(pending && !user) {
-    return <div>Loading...</div> // Alter to change loading page behavior
+    return <div>Loading...</div>
   } else if(user) {
-    return <Route path={path} component={component} /> // Updates as path and component change.
+    return <Route path={path} component={component} />
   } else {
-    return <Redirect to='/'/> //Kicks the user back to the main page to login.
+    return <Redirect to='/'/>
   }
 }
 
