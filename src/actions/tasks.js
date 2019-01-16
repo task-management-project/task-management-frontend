@@ -1,4 +1,5 @@
 import axios from 'axios'
+import request from '../utils/request'
 
 const baseURL = "localhost:5000"
 
@@ -12,15 +13,15 @@ export const UPDATE_TASK = 'UPDATE_TASK'
 
 export const getMemberTasks = (memberId) => {
   return (dispatch) => {
-    axios.get(`http://${baseURL}/users/${memberId}/tasks`)
-      .then(result => dispatch({ type: GET_MEMBER_TASKS, payload: result.data }))
+    request(`/users/${memberId}/tasks`)
+      .then(result => dispatch({ type: GET_MEMBER_TASKS, payload: result.data.data }))
       .catch(err => console.log(err))
   }
 }
 
 export const addTask = (memberId, taskObj) => {
   return (dispatch) => {
-    axios.post(`http://${baseURL}/users/${memberId}/tasks`, taskObj)
+    request(`/users/${memberId}/tasks`,'post', taskObj)
       .then(result => dispatch({ type: ADD_TASK, payload: result.data }))
       .catch(err => console.log(err))
   }
@@ -28,7 +29,7 @@ export const addTask = (memberId, taskObj) => {
 
 export const deleteTask = (memberId, taskId) => {
   return (dispatch) => {
-    axios.delete(`http://${baseURL}/users/${memberId}/tasks/${taskId}`)
+    request(`/users/${memberId}/tasks/${taskId}`, 'delete')
       .then(result => dispatch({ type: DELETE_TASK, payload: result.data }))
       .catch(err => console.log(err))
   }
