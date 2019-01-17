@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Hero, Navbar, Button, Form } from 'react-bulma-components'
 import {connect} from 'react-redux'
+import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router'
 // import request from '../utils/request'
 // import {setAuthentication} from '../actions/authentication'
@@ -21,7 +22,8 @@ class TopNav extends React.Component {
             <Hero.Head>
                 <Navbar>
                 <Navbar.Brand>
-                    Task Manager
+                <NavLink to='/'> Task Manager</NavLink>
+                    
                 </Navbar.Brand>
                 <Navbar.Item className="navbtn">
                     <Button className="button is-primary is-inverted is-outlined topbtn">

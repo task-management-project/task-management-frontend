@@ -25,7 +25,7 @@ class App extends Component {
   }
   render() {
   return (
-    <Hero color="primary" size="full-height">
+    <Hero class = "hero is-medium is-primary is-bold" size="full-height">
     <BrowserRouter>
     <React.Fragment>
       <TopNav />
