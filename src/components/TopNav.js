@@ -23,6 +23,14 @@ class TopNav extends React.Component {
         isOpen: !this.state.isOpen
     });
     }
+
+    handleLogout = () => {
+        this.props.userLogout(() => {
+            localStorage.clear()
+            this.props.history.push('/')
+        })
+    }
+
     render () {
         console.log(this.props.user)
         return (
@@ -43,7 +51,7 @@ class TopNav extends React.Component {
                 {this.props.user ? 
                     <Navbar.Item className="navbtn">
                     <Button className="button is-primary is-inverted is-outlined is-medium topbtn" 
-                        onClick={()=>this.props.userLogout(() => this.props.history.push('/'))}>
+                        onClick={this.handleLogout}>
                         Sign Out
                     </Button>
                     </Navbar.Item>  
