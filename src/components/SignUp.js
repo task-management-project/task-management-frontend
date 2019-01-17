@@ -31,7 +31,9 @@ class SignUp extends Component {
     render() {
         return (
             <Box>
-                <Heading>Create an Account</Heading>
+                <Heading>
+                    <div className="title_signin">Sign Up Here</div>
+                </Heading>
                 <form onSubmit={this.handleSubmit}>
                     <Field >
                         <Label>Username</Label>
