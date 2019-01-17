@@ -47,9 +47,6 @@ class App extends Component {
       
       </Hero.Body>
       
-      <Hero.Footer>
-
-      </Hero.Footer>
       </React.Fragment>
       </BrowserRouter>
     </Hero>

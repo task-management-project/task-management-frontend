@@ -19,7 +19,7 @@ export const getMemberTasks = (memberId) => {
   }
 }
 
-export const addTask = (memberId, taskObj) => {
+export const addTask = (memberId, taskObj, history) => {
   console.log(taskObj)
   return (dispatch) => {
     request(`/users/${memberId}/tasks`,'post', taskObj)

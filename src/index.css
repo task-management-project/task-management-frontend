@@ -31,10 +31,10 @@ code {
 }
 .topbtn{
   margin-right: 7%;
-  text-align: center;
 }
 .title_signin{
   color: #027564;
+  letter-spacing: 1px;
   margin: 3%;
   text-align: center;
 }
@@ -43,6 +43,8 @@ code {
   background-size:  cover;
   height: 650px;
 }
+
+
 .btnctr{
   margin: 2%;
 }
@@ -51,6 +53,11 @@ code {
 }
 .sign_container{
   width: 60%;
+  margin-left:auto;
+  margin-right:auto;
+}
+.taskview_container{
+  width: 95%;
   margin-left:auto;
   margin-right:auto;
 }
@@ -98,4 +105,20 @@ code {
 .columnctr{
   margin-left:28%;
   margin-right:auto;
+}
+.taskbtn_group{
+  margin-top: 5%;
+  margin-bottom: 3%;
+  margin-left:38%;
+}
+.breadcrumbs{
+  color: #00d1b2;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+.taskboxctr{
+  padding: 7%;
 }

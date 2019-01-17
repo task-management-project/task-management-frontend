@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { Heading, Box, Button, Form, Container } from 'react-bulma-components'
 import {connect} from 'react-redux'
 import request from '../utils/request'
+import { Icon } from 'react-icons-kit'
+import {idBadge} from 'react-icons-kit/fa/idBadge'
 import {setAuthentication} from '../actions/authentication'
 import { bindActionCreators } from 'redux';
 
@@ -50,9 +52,14 @@ class SignIn extends Component {
         return (
             <div className="sign_container">
             <Box>
-                <Heading>
-                    <div className="title_signin">Sign In Here</div>
-                </Heading>
+            <Heading>
+                <div className="title_signin">
+                    <span style={{ color: '#addfe2' }}>
+                    <Icon icon={idBadge} size={40}/>  
+                    </span>
+                    <span> Sign In Here</span>
+                </div>
+            </Heading>
                 
                 <Container>
                 <form onSubmit={this.handleSubmit}>
@@ -65,7 +72,7 @@ class SignIn extends Component {
                     <Field className="sign_forms">
                         <Label className="sign_font">Password</Label>
                         <Control>
-                            <Input onChange={this.handleChange} color="success" type="text" name="password" value={this.state.password} />
+                            <Input onChange={this.handleChange} color="success" type="password" name="password" value={this.state.password} />
                         </Control>
                     </Field>
                     <div className="btn_group">

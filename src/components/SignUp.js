@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Icon } from 'react-icons-kit'
+import {vcard} from 'react-icons-kit/fa/vcard'
 import { Heading, Box, Button, Form, Container } from 'react-bulma-components'
 const { Label, Field, Input, Control } = Form
 
@@ -33,7 +35,12 @@ class SignUp extends Component {
             <div className="sign_container">
             <Box>
                 <Heading>
-                    <div className="title_signin">Sign Up Here</div>
+                    <div className="title_signin">
+                        <span style={{ color: '#addfe2' }}>
+                        <Icon icon={vcard} size={50}/>  
+                        </span>
+                        <span> Sign Up Here</span>
+                    </div>
                 </Heading>
                 <Container>
                 <form onSubmit={this.handleSubmit}>
@@ -53,7 +60,7 @@ class SignUp extends Component {
                     <Field className="sign_forms">
                         <Label className="sign_font">Retype Password</Label>
                         <Control>
-                            <Input onChange={this.handleChange} color="success" type="text" name="matchPassword" value={this.state.matchPassword} />
+                            <Input onChange={this.handleChange} color="success" type="password" name="matchPassword" value={this.state.matchPassword} />
                         </Control>
                     </Field>
                     <div className="btn_group">
