@@ -1,75 +1,84 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Icon } from 'react-icons-kit'
+import {tasks} from 'react-icons-kit/fa/tasks'
 import { Box, Heading, Tile } from 'react-bulma-components'
+import MemberCard from './MemberCard'
+import { viewAllTeam, deleteUserFromTeam } from '../actions/manager'
 
 
-const ManagerDashboard = ({ things }) => (
-    <div>
-        <Heading>Team Activities</Heading>
-        {/* replace below with actual ManagerCards */}
+class ManagerDashboard extends Component {
+  constructor(props) {
+    super(props)
+    this.state = null
+  }
+
+  componentDidMount = () => {
+    this.props.viewAllTeam(1)
+
+  }
+  render() {
+
+    return (
+      <div className="taskview_container">
+      <Box classNAme="taskview_box">
+        <Heading>
+          <div className="title_signin">
+            <span style={{ color: '#addfe2' }}>
+            <Icon icon={tasks} size={40}/>  
+            </span>
+            <span> Team Overview</span>
+          </div>
+        </Heading>  
         <Box>
-      <Tile kind="ancestor">
-        <Tile size={8} vertical>
-          <Tile>
-            <Tile kind="parent" vertical>
-              <Tile renderAs="article" kind="child" notification color="primary">
-                <Heading>Vertical...</Heading>
-                <Heading subtitle>Top tile</Heading>
-              </Tile>
-              <Tile renderAs="article" kind="child" notification color="warning">
-                <Heading>Tiles...</Heading>
-                <Heading subtitle>Bottom Tile...</Heading>
-              </Tile>
-            </Tile>
-            <Tile kind="parent">
-              <Tile renderAs="article" kind="child" notification color="info">
-                <Heading>Middle Tile...</Heading>
-                <Heading subtitle>With image Tile...</Heading>
-              </Tile>
+          <Tile kind="ancestor">
+            <Tile size={12}>
+            {<div><MemberCard/><MemberCard/><MemberCard/></div>}
+              {/* {
+                this.props.tasks.team(member => {
+                  return <MemberCard 
+                  key={member.id} 
+                  {...member} 
+                  deleteUserFromTeam={() => this.props.deleteUserFromTeam(member.id, this.props.teamId)} 
+                  />
+                })
+              } */}
             </Tile>
           </Tile>
-          <Tile kind="parent">
-            <Tile renderAs="article" kind="child" notification color="danger">
-              <Heading>Wide tile</Heading>
-              <Heading subtitle>Aligned with the right tile</Heading>
-              <div className="content" />
-            </Tile>
-          </Tile>
-        </Tile>
-        <Tile kind="parent">
-          <Tile renderAs="article" kind="child" notification color="success">
-            <div className="content">
-              <Heading>Tall tile</Heading>
-              <Heading subtitle>With even more content</Heading>
-              <div className="content" />
-            </div>
-          </Tile>
-        </Tile>
-      </Tile>
-    </Box>
-    <Link to={'/managerselectteam'}>Adjust Team</Link>
-    <br/><br/>
-    <Link to={'/toggle'}>Go Back</Link>
+        </Box>
+       
+        <div class="breadcrumbs">
+          <Link to={'/toggle'}>Go Back      |      </Link >
+          <Link to={'/focus'}>Focus      |     </Link >
+          <Link to={'/membertaskform'}>Add Task</Link >
+        </div>
+      </Box>
+      </div>
+    )
+  }
 
-    </div>
+}
 
-)
 
 
 
 
 
 const mapStateToProps = state => ({
-
+  tasks: state.tasks,
+  userId: state.authentication.user.id
+  // teamId: state.
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  viewAllTeam: viewAllTeam,
+  deleteUserFromTeam: deleteUserFromTeam
 
 }, dispatch)
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(ManagerDashboard);

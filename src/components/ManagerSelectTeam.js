@@ -2,42 +2,84 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Box, Heading, Dropdown } from 'react-bulma-components'
+import { Box, Heading, Dropdown, Form, Button, Table } from 'react-bulma-components'
+import {buildTeam} from '../actions/manager'
 const { Item } = Dropdown
-
+const { Label, Field, Input, Control } = Form
 
 class ManagerSelectTeam extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            teamName: 'placeholder team name',
-            teamDescription: 'placeholder team description',
-            teamMembers: ["person three", "person four", "person seven"]
+            teamName: '',
+            teamDescription: '',
+            teamMembers: new Set(),
+            selected: 'active'
         }
     }
+    componentDidMount(){
+        this.props.buildTeam()
+    }
+    onChange = selected => {
+        let result = new Set(Array.from(this.state.teamMembers))
+        result.has(selected) ? 
+            result.delete(selected) :
+            result.add(selected)
+        return this.setState({teamMembers: result, selected: {selected}})}
 
+    handleChange = (e) => this.setState({[e.target.name]: e.target.value})
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+    }
 
     render() {
+        console.log(Array.from(this.state.teamMembers))
         return (
             <div>
             <Box>
-                <Heading>{this.state.teamName}</Heading>
-                <Heading>{this.state.teamDescription}</Heading>
+                <form onSubmit={null}>
+                    <Field>
+                        <Label>Team Name</Label>
+                        <Control>
+                            <Input onChange={this.handleChange} color="success" type="text" name="teamName" value={this.state.teamName} />
+                        </Control>
+                    </Field>
+                    <Field>
+                        <Label>Team Description</Label>
+                        <Control>
+                            <Input onChange={this.handleChange} color="success" type="text" name="teamDescription" value={this.state.teamDescription} />
+                        </Control>
+                    </Field>
+                </form>
             </Box>
         <Box>
             <Heading>Assemble Your Team</Heading>
-            {/* change dropdown to map that populates with list of members */}
-            <Dropdown>
-                <Item value="item">Person 1</Item>
-                <Item value="other">Person 2</Item>
-                <Item value="active">Person 3</Item>
-                <Item value="other 2">Person 4</Item>
+            <Dropdown value={this.state.selected} onChange={this.onChange}>
+                {(this.props.users) ?
+                this.props.users.map(ele => <Item value={ele.id}>{ele.username}</Item>) :
+                <Item value='Loading'>Loading</Item>}
 
             </Dropdown>
+            <Box>
+                <Table>
+                    <tbody>
+                        {(Array.from(this.state.teamMembers).map(ele => <tr><td>{this.props.users[ele-1].username}</td></tr>))}
+                    </tbody>
+                </Table>
+            </Box>
             <br /> <br />
             <Link to={'./toggle'}> Go Back </Link>
             <br /> <br />
             <Link to={'./managerdash'}>Go to Manager Dashboard</Link>
+            <Field kind="group">
+                <Control>
+                    <Button  type="primary">Submit</Button>
+                </Control>
+                <Control>
+                    <Button color="link" renderAs="a">Cancel</Button>
+                </Control>
+            </Field>
         </Box>
         
         </div>
@@ -46,11 +88,11 @@ class ManagerSelectTeam extends Component {
 }
 
 const mapStateToProps = state => ({
-
+    users: state.manager.data
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-
+buildTeam: buildTeam
 }, dispatch)
 
 export default connect(

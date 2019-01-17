@@ -31,9 +31,7 @@ class MemberDashboard extends Component {
             </span>
             <span> Task Overview</span>
           </div>
-        </Heading>
-        { console.log("my log here:", this.props.tasks)}
-        
+        </Heading> 
         <Box>
           <Tile kind="ancestor">
             <Tile size={12}>
