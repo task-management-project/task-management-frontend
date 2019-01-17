@@ -30,7 +30,7 @@ class MemberTaskForm extends Component {
             this.setState({showErrorMessage: true})
         }
         else{
-            this.props.addTask(this.props.userId, this.state)
+            this.props.addTask(this.props.userId, this.state, () => {this.props.history.push('/memberdash')})
         }
     }
 
