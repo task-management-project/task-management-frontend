@@ -55,7 +55,7 @@ class MemberFocus extends Component {
                         <FocusCard {...this.props.task} />
                         : null
                     }
-                        <form onSubmit={this.handleSubmit}>
+                        <form autocomplete="off" onSubmit={this.handleSubmit}>
                             <Field>
                                 <Label>Thoughts:</Label>
                                 <Control>
