@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Icon } from 'react-icons-kit'
+import {tasks} from 'react-icons-kit/fa/tasks'
 import { Box, Heading, Tile } from 'react-bulma-components'
 import TaskCard from './TaskCard'
 import { getMemberTasks, deleteTask } from '../actions/tasks'
@@ -20,14 +22,21 @@ class MemberDashboard extends Component {
   render() {
 
     return (
-      <div>
-        <Heading>Task Overview</Heading>
+      <div className="taskview_container">
+      <Box classNAme="taskview_box">
+        <Heading>
+          <div className="title_signin">
+            <span style={{ color: '#addfe2' }}>
+            <Icon icon={tasks} size={40}/>  
+            </span>
+            <span> Task Overview</span>
+          </div>
+        </Heading>
         { console.log("my log here:", this.props.tasks)}
         
         <Box>
           <Tile kind="ancestor">
             <Tile size={12}>
-
               {
                 this.props.tasks.map(task => {
                   return <TaskCard key={task.id} {...task} deleteTask={() => this.props.deleteTask(this.props.userId, task.id)} />
@@ -36,10 +45,13 @@ class MemberDashboard extends Component {
             </Tile>
           </Tile>
         </Box>
-        <Link to={'/membertaskform'}>Add Task</Link>
-        <br /><br />
-        <Link to={'/focus'}>Focus</Link>
-
+       
+        <div class="breadcrumbs">
+          <Link to={'/toggle'}>Go Back      |      </Link >
+          <Link to={'/focus'}>Focus      |     </Link >
+          <Link to={'/membertaskform'}>Add Task</Link >
+        </div>
+      </Box>
       </div>
     )
   }

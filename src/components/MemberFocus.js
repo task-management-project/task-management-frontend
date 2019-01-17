@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Icon } from 'react-icons-kit'
+import {chart} from 'react-icons-kit/entypo/chart'
 import { Box, Heading, Form, Button } from 'react-bulma-components'
 import FocusCard from './FocusCard'
 import { getMemberTasks, updateTask } from '../actions/tasks'
@@ -38,15 +40,21 @@ class MemberFocus extends Component {
     render() {
 
         return (
-            <div>
-                <Box>
-                    <Heading>Task Focus Zone</Heading>
-
+            <div className="taskview_container">
+                <Box classNAme="taskview_box">
+                <Heading>
+                    <div className="title_signin">
+                        <span style={{ color: '#addfe2' }}>
+                        <Icon icon={chart} size={40}/>  
+                        </span>
+                        <span> Task Focus Zone</span>
+                    </div>
+                </Heading>
+                <Box className="taskfocusbox">
                     {this.props.task ?
                         <FocusCard {...this.props.task} />
                         : null
                     }
-                    <Box>
                         <form onSubmit={this.handleSubmit}>
                             <Field>
                                 <Label>Thoughts:</Label>
@@ -58,14 +66,13 @@ class MemberFocus extends Component {
                                 <Button type="primary">Submit</Button>
                             </Control>
                         </form>
-                    </Box>
                 </Box>
-
-
-                <Link to={'./memberdash'}>
-                    return to dashboard
-      </Link>
-
+                    <div class="breadcrumbs">
+                        <Link to={'./toggle'}>Go Back      |      </Link >
+                        <Link to={'/membertaskform'}>Add Task      |     </Link >
+                        <Link to={'./memberdash'}>Dashboard</Link >
+                    </div>
+                </Box>
             </div>
         )
     }

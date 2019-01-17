@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { addTask } from '../actions/tasks'
+import { Icon } from 'react-icons-kit'
+import {clipboard} from 'react-icons-kit/fa/clipboard'
 import { Heading, Box, Button, Form } from 'react-bulma-components'
 const { Label, Field, Input, Control } = Form
 
@@ -32,7 +34,12 @@ class MemberTaskForm extends Component {
             <div className="sign_container">
             <Box className="taskboxctr">
                 <Heading>
-                <div className="title_signin">Create New Task</div>
+                    <div className="title_signin">
+                        <span style={{ color: '#addfe2' }}>
+                        <Icon icon={clipboard} size={40}/>  
+                        </span>
+                        <span> Create New Task </span>
+                    </div>
                 </Heading>
                 <form onSubmit={this.handleSubmit}>
                 <Field>
