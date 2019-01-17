@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Box, Heading, Dropdown, Form, Button, Table } from 'react-bulma-components'
-import {buildTeam} from '../actions/manager'
+import {buildTeam, createTeam} from '../actions/manager'
 const { Item } = Dropdown
 const { Label, Field, Input, Control } = Form
 
@@ -31,10 +31,16 @@ class ManagerSelectTeam extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        this.props.createTeam(
+            Array.from(this.state.teamMembers), 
+            this.state.teamName,
+            this.state.teamDescription,
+            this.props.userId)
+        this.setState({teamMembers: new Set()})
+        this.props.history.push('/managerdash')
     }
 
     render() {
-        console.log(Array.from(this.state.teamMembers))
         return (
             <div>
             <Box>
@@ -64,7 +70,9 @@ class ManagerSelectTeam extends Component {
             <Box>
                 <Table>
                     <tbody>
-                        {(Array.from(this.state.teamMembers).map(ele => <tr><td>{this.props.users[ele-1].username}</td></tr>))}
+                        {(this.state.teamMembers) ?
+                            (Array.from(this.state.teamMembers).map(ele => <tr><td>{this.props.users[ele-1].username}</td></tr>)) :
+                            null}
                     </tbody>
                 </Table>
             </Box>
@@ -74,7 +82,7 @@ class ManagerSelectTeam extends Component {
             <Link to={'./managerdash'}>Go to Manager Dashboard</Link>
             <Field kind="group">
                 <Control>
-                    <Button  type="primary">Submit</Button>
+                    <Button  type="primary" onClick={this.handleSubmit}>Submit</Button>
                 </Control>
                 <Control>
                     <Button color="link" renderAs="a">Cancel</Button>
@@ -88,11 +96,13 @@ class ManagerSelectTeam extends Component {
 }
 
 const mapStateToProps = state => ({
-    users: state.manager.data
+    users: state.manager.data,
+    userId: state.authentication.user.id
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-buildTeam: buildTeam
+buildTeam: buildTeam,
+createTeam: createTeam
 }, dispatch)
 
 export default connect(

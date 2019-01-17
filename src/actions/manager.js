@@ -1,8 +1,8 @@
-import axios from 'axios'
 import request from '../utils/request';
+import { user } from 'react-icons-kit/fa/user';
 
 export const VIEW_ALL_TEAM = 'VIEW_ALL_TEAM'
-export const UPDATE_TEAM = 'UPDATE_TEAM'
+export const CREATE_TEAM = 'CREATE_TEAM'
 export const DELETE_USER_FROM_TEAM = 'DELETE_USER_FROM_TEAM'
 export const BUILD_TEAM = 'BUILD_TEAM'
 
@@ -22,11 +22,14 @@ export const viewAllTeam = (teamId) => {
   }
 }
 
-export const addUserToTeam = (userId, teamId) => {
+export const createTeam = (userIds, teamName, teamDesc, id) => {
   return (dispatch) => {
-    //axios call type?
-    request('serverPath', 'post')
-    .then(result => dispatch({type: UPDATE_TEAM, payload: result.data}))
+    request(`/users/${id}/team`, 'post', {
+      team: userIds,
+      name: teamName,
+      description: teamDesc
+    })
+    .then(result => dispatch({type: CREATE_TEAM, payload: result.data}))
     .catch(err => console.log(err))
   }
 }
