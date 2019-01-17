@@ -5,7 +5,7 @@ import { Tile, Heading, Button } from 'react-bulma-components'
 
 
 
-export default function MemberCard({member, name, description}) {
+export default function MemberCard({member, name, description, deleteUserFromTeam}) {
     return (
 
         <Tile kind="parent">
@@ -17,7 +17,7 @@ export default function MemberCard({member, name, description}) {
                    
                     <div className="content" />
                 </div>
-                <Button >Remove</Button>
+                <Button onClick={deleteUserFromTeam}>Remove</Button>
             </Tile>
         </Tile >
 

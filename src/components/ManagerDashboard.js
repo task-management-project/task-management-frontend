@@ -6,7 +6,7 @@ import { Icon } from 'react-icons-kit'
 import {tasks} from 'react-icons-kit/fa/tasks'
 import { Box, Heading, Tile } from 'react-bulma-components'
 import MemberCard from './MemberCard'
-import { viewAllTeam } from '../actions/manager'
+import { viewAllTeam, deleteUserFromTeam } from '../actions/manager'
 
 
 class ManagerDashboard extends Component {
@@ -41,7 +41,7 @@ class ManagerDashboard extends Component {
                   return <MemberCard 
                   key={member.id} 
                   {...member} 
-            
+                  deleteUserFromTeam={() => this.props.deleteUserFromTeam(member.id, this.props.teamId)} 
                   />
                 })
               } */}
@@ -74,6 +74,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   viewAllTeam: viewAllTeam,
+  deleteUserFromTeam: deleteUserFromTeam
 
 }, dispatch)
 
