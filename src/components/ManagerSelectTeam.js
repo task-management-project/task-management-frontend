@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Box, Heading, Dropdown, Form, Button, Table } from 'react-bulma-components'
-import {buildTeam} from '../actions/manager'
+import {buildTeam, createTeam} from '../actions/manager'
 const { Item } = Dropdown
 const { Label, Field, Input, Control } = Form
 
@@ -31,10 +31,13 @@ class ManagerSelectTeam extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        this.props.createTeam(
+            Array.from(this.state.teamMembers), 
+            this.state.teamName,
+            this.state.teamDescription)
     }
 
     render() {
-        console.log(Array.from(this.state.teamMembers))
         return (
             <div>
             <Box>
@@ -92,7 +95,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-buildTeam: buildTeam
+buildTeam: buildTeam,
+createTeam: createTeam
 }, dispatch)
 
 export default connect(

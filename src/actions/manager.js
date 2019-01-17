@@ -1,8 +1,7 @@
-import axios from 'axios'
 import request from '../utils/request';
 
 export const VIEW_ALL_TEAM = 'VIEW_ALL_TEAM'
-export const UPDATE_TEAM = 'UPDATE_TEAM'
+export const CREATE_TEAM = 'CREATE_TEAM'
 export const DELETE_USER_FROM_TEAM = 'DELETE_USER_FROM_TEAM'
 export const BUILD_TEAM = 'BUILD_TEAM'
 
@@ -22,11 +21,11 @@ export const viewAllTeam = (teamId) => {
   }
 }
 
-export const addUserToTeam = (userId, teamId) => {
+export const createTeam = (userIds, teamName, teamDesc) => {
   return (dispatch) => {
     //axios call type?
     request('serverPath', 'post')
-    .then(result => dispatch({type: UPDATE_TEAM, payload: result.data}))
+    .then(result => dispatch({type: CREATE_TEAM, payload: result.data}))
     .catch(err => console.log(err))
   }
 }
