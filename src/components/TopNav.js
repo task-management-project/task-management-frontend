@@ -26,10 +26,10 @@ class TopNav extends React.Component {
                     
                 </Navbar.Brand>
                 <Navbar.Item className="navbtn">
-                    <Button className="button is-primary is-inverted is-outlined topbtn">
+                    <Button className="button is-primary is-inverted is-outlined is-medium topbtn">
                     Create
                     </Button>
-                    <Button className="button is-primary is-inverted is-outlined topbtn">
+                    <Button className="button is-primary is-inverted is-outlined is-medium topbtn">
                     SignOut
                     </Button>
                 </Navbar.Item>
