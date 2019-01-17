@@ -1,11 +1,11 @@
 import React from 'react'
-import { Tile, Heading, Button } from 'react-bulma-components'
+import { Tile, Heading, } from 'react-bulma-components'
 
 
 
 
 
-export default function TaskCard({name, description, thoughts, deleteTask}) {
+export default function TaskCard({name, description, thoughts,}) {
     return (
 
         <Tile kind="parent">
@@ -16,13 +16,9 @@ export default function TaskCard({name, description, thoughts, deleteTask}) {
                     <Heading subtitle>{thoughts}</Heading>
                     <div className="content" />
                 </div>
-                <Button onClick={deleteTask}>Delete</Button>
             </Tile>
         </Tile >
 
     )
 }
-
-
-
 

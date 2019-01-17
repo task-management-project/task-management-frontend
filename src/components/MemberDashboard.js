@@ -41,7 +41,7 @@ class MemberDashboard extends Component {
         </Box>
         <Link to={'/membertaskform'}>Add Task</Link>
         <br /><br />
-        <Link to={'/toggle'}>Go Back</Link>
+        <Link to={'/focus'}>Focus</Link>
 
       </div>
     )
