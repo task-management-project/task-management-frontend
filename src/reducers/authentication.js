@@ -1,14 +1,19 @@
-import {SET_AUTHENTICATION} from '../actions/authentication'
+import {SET_AUTHENTICATION, 
+        USER_LOGIN_FAILED
+} from '../actions/authentication'
 
 const AUTHETICATION_INITIAL_STATE = {
   user: null,
-  pending: true
+  pending: true,
+  showLoginError:false
 }
 
 const authentication = (state = AUTHETICATION_INITIAL_STATE, {type, payload}) => {
   switch(type) {
     case SET_AUTHENTICATION:
       return {user: payload, pending: false}
+    case USER_LOGIN_FAILED:
+      return {...state, showLoginError: true}
     default:
     return state
   }

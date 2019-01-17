@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Heading, Box, Button, Form, Container } from 'react-bulma-components'
+import { Heading, Box, Button, Form, Container, Notification } from 'react-bulma-components'
 import {connect} from 'react-redux'
 import request from '../utils/request'
 import { Icon } from 'react-icons-kit'
@@ -44,10 +44,16 @@ class SignIn extends Component {
             this.props.history.push('/toggle')
         })
         .catch(error => {
-            console.log(error)
             this.setState({showErrorMessage: true})
+            console.log(error)
         })
     }
+
+    closeErrorMessage = (e) => {
+        e.preventDefault()
+        this.setState({showErrorMessage: false})
+    }
+
     render() {
         return (
             <div className="sign_container">
@@ -74,7 +80,15 @@ class SignIn extends Component {
                         <Control>
                             <Input onChange={this.handleChange} color="success" type="password" name="password" value={this.state.password} />
                         </Control>
+                        {this.state.showErrorMessage ? (
+                            <Notification className="notification">
+                                Id doesn't exist or the password you’ve entered is incorrect. If you want to join our website, please <a href="/signup">Sign up.</a>
+                                <Button remove onClick={this.closeErrorMessage}/>
+                            </Notification> 
+                        ) : null}
+                        
                     </Field>
+
                     <div className="btn_group">
                     <Field kind="group" className="sign_group">
                         <Control>

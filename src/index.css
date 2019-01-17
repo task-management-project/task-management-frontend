@@ -43,7 +43,9 @@ code {
   background-size:  cover;
   height: 650px;
 }
-
+.notification{
+  margin-top: 5%;
+}
 
 .btnctr{
   margin: 2%;
