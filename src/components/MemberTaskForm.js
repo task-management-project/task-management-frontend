@@ -26,7 +26,7 @@ class MemberTaskForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.addTask(this.props.userId, this.state)
+        this.props.addTask(this.props.userId, this.state, () => {this.props.history.push('/memberdash')})
     }
 
     render() {
