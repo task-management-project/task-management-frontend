@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Icon } from 'react-icons-kit'
 import { vcard } from 'react-icons-kit/fa/vcard'
-import { Heading, Box, Button, Form, Container } from 'react-bulma-components'
+import { Heading, Box, Button, Form, Container, Notification } from 'react-bulma-components'
 import { createUser } from '../actions/users';
 const { Label, Field, Input, Control } = Form
 
@@ -16,8 +16,8 @@ class SignUp extends Component {
             username: '',
             password: '',
             matchPassword: '',
-            position: ''
-
+            position: '',
+            showErrorMessage: false
         }
     }
 
@@ -29,15 +29,24 @@ class SignUp extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        if (this.state.password === this.state.matchPassword) {
-            this.props.createUser({ username: this.state.username, password: this.state.password, position: this.state.position }, () => { this.props.history.push('/signin') })
+        if (!this.state.username || !this.state.password || !this.state.matchPassword){
+            this.setState({showErrorMessage: true})
         }
-        else {
-            this.setState ({
-                position: "Passwords Must Match"
-            })
+        else if (this.state.password === this.state.matchPassword) {
+            this.props.createUser({ 
+                username: this.state.username, password: this.state.password, position: this.state.position 
+            }, () => { this.props.history.push('/signin') })
+        }
+        else if (this.state.password === this.state.matchPassword){
+            this.setState({showErrorMessage: true})
         }
     }
+
+    closeErrorMessage = (e) => {
+        e.preventDefault()
+        this.setState({showErrorMessage: false})
+    }
+
     render() {
         return (
             <div className="sign_container">
@@ -76,7 +85,18 @@ class SignUp extends Component {
                                 <Control>
                                     <Input onChange={this.handleChange} color="success" type="text" name="position" value={this.state.position} />
                                 </Control>
+                            
+                            {this.state.showErrorMessage ? (
+                                <Notification className="notification">
+                                    Password doesn't match or you missed some information.
+                                    <Button remove onClick={this.closeErrorMessage}/>
+                                </Notification> 
+                            ) : null}
+                            
                             </Field>
+
+                            
+
                             <div className="btn_group">
                                 <Field kind="group" className="sign_group">
                                     <Control>

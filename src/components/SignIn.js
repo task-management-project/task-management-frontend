@@ -40,7 +40,7 @@ class SignIn extends Component {
             return request('/login')
         })
         .then(response => {
-            setAuthentication(response.data)
+            this.props.setAuthentication(response.data)
             this.props.history.push('/toggle')
         })
         .catch(error => {
