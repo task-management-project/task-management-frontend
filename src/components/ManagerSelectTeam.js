@@ -34,7 +34,10 @@ class ManagerSelectTeam extends Component {
         this.props.createTeam(
             Array.from(this.state.teamMembers), 
             this.state.teamName,
-            this.state.teamDescription)
+            this.state.teamDescription,
+            this.props.userId)
+        this.setState({teamMembers: new Set()})
+        this.props.history.push('/managerdash')
     }
 
     render() {
@@ -67,7 +70,9 @@ class ManagerSelectTeam extends Component {
             <Box>
                 <Table>
                     <tbody>
-                        {(Array.from(this.state.teamMembers).map(ele => <tr><td>{this.props.users[ele-1].username}</td></tr>))}
+                        {(this.state.teamMembers) ?
+                            (Array.from(this.state.teamMembers).map(ele => <tr><td>{this.props.users[ele-1].username}</td></tr>)) :
+                            null}
                     </tbody>
                 </Table>
             </Box>
@@ -77,7 +82,7 @@ class ManagerSelectTeam extends Component {
             <Link to={'./managerdash'}>Go to Manager Dashboard</Link>
             <Field kind="group">
                 <Control>
-                    <Button  type="primary">Submit</Button>
+                    <Button  type="primary" onClick={this.handleSubmit}>Submit</Button>
                 </Control>
                 <Control>
                     <Button color="link" renderAs="a">Cancel</Button>
@@ -91,7 +96,8 @@ class ManagerSelectTeam extends Component {
 }
 
 const mapStateToProps = state => ({
-    users: state.manager.data
+    users: state.manager.data,
+    userId: state.authentication.user.id
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

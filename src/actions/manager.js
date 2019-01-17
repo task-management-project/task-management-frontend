@@ -21,10 +21,12 @@ export const viewAllTeam = (teamId) => {
   }
 }
 
-export const createTeam = (userIds, teamName, teamDesc) => {
+export const createTeam = (userIds, teamName, teamDesc, id) => {
   return (dispatch) => {
-    //axios call type?
-    request('serverPath', 'post')
+    request(`/users/${id}/team`, 'post', {
+      name: teamName,
+      description: teamDesc
+    })
     .then(result => dispatch({type: CREATE_TEAM, payload: result.data}))
     .catch(err => console.log(err))
   }

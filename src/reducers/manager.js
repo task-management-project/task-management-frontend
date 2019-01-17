@@ -9,7 +9,7 @@ const manager = (state = initialState, {type, payload}) => {
     case VIEW_ALL_TEAM:
       return state //Needs to be updated
     case CREATE_TEAM:
-      return [...state, payload] //Needs to be updated
+      return [payload] //Needs to be updated
     case DELETE_USER_FROM_TEAM:
       return state //Needs to be updated
     default:
