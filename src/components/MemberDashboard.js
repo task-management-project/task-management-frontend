@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Icon } from 'react-icons-kit'
-import {tasks} from 'react-icons-kit/fa/tasks'
-import { Box, Heading, Tile } from 'react-bulma-components'
+import { tasks } from 'react-icons-kit/fa/tasks'
+import { Box, Heading, Tile, Container, Columns } from 'react-bulma-components'
 import TaskCard from './TaskCard'
 import { getMemberTasks, deleteTask, updateTask } from '../actions/tasks'
 
@@ -23,38 +23,40 @@ class MemberDashboard extends Component {
 
     return (
       <div className="taskview_container">
-      <Box classNAme="taskview_box">
-        <Heading>
-          <div className="title_signin">
-            <span style={{ color: '#addfe2' }}>
-            <Icon icon={tasks} size={40}/>  
-            </span>
-            <span> Task Overview</span>
-          </div>
-        </Heading> 
-        <Box>
-          <Tile kind="ancestor">
-            <Tile size={12}>
-              {
-                this.props.tasks.map(task => {
-                  return <TaskCard 
-                  key={task.id} 
-                  {...task} 
-                  deleteTask={() => this.props.deleteTask(this.props.userId, task.id)} 
-                  updateTask={() => this.props.updateTask(this.props.userId, task.id, {isFocus: !task.isFocus})}
-                  />
-                })
-              }
+        <Box classNAme="taskview_box">
+          <Heading>
+            <div className="title_signin">
+              <span style={{ color: '#addfe2' }}>
+                <Icon icon={tasks} size={40} />
+              </span>
+              <span> Task Overview</span>
+            </div>
+          </Heading>
+          <Container>
+            <Tile kind="ancestor" flex-wrap="wrap">
+              <Tile>
+                <Columns>
+                  {
+                    this.props.tasks.map(task => {
+                      return <TaskCard
+                        key={task.id}
+                        {...task}
+                        deleteTask={() => this.props.deleteTask(this.props.userId, task.id)}
+                        updateTask={() => this.props.updateTask(this.props.userId, task.id, { isFocus: !task.isFocus })}
+                      />
+                    })
+                  }
+                </Columns>
+              </Tile>
             </Tile>
-          </Tile>
+          </Container>
+
+          <div class="breadcrumbs">
+            <Link to={'/toggle'}>Go Back      |      </Link >
+            <Link to={'/focus'}>Focus      |     </Link >
+            <Link to={'/membertaskform'}>Add Task</Link >
+          </div>
         </Box>
-       
-        <div class="breadcrumbs">
-          <Link to={'/toggle'}>Go Back      |      </Link >
-          <Link to={'/focus'}>Focus      |     </Link >
-          <Link to={'/membertaskform'}>Add Task</Link >
-        </div>
-      </Box>
       </div>
     )
   }
