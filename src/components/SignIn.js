@@ -8,7 +8,6 @@ import { bindActionCreators } from 'redux';
 const { Label, Field, Input, Control } = Form
 
 
-
 class SignIn extends Component {
     constructor(props) {
         super(props)
@@ -50,7 +49,9 @@ class SignIn extends Component {
     render() {
         return (
             <Box>
-                <Heading>Sign In Here</Heading>
+                <Heading>
+                    <div className="title_signin">Sign In Here</div>
+                </Heading>
                 <form onSubmit={this.handleSubmit}>
                     <Field>
                         <Label>Username</Label>
