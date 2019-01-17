@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { Heading, Box, Button, Form } from 'react-bulma-components'
+import { Link } from 'react-router-dom'
+import { Heading, Box, Button, Form, Container } from 'react-bulma-components'
 import {connect} from 'react-redux'
 import request from '../utils/request'
+import { Icon } from 'react-icons-kit'
+import {idBadge} from 'react-icons-kit/fa/idBadge'
 import {setAuthentication} from '../actions/authentication'
 import { bindActionCreators } from 'redux';
 
 const { Label, Field, Input, Control } = Form
-
 
 
 class SignIn extends Component {
@@ -15,7 +17,6 @@ class SignIn extends Component {
         this.state = {
             username: '',
             password: ''
-
         }
     }
 
@@ -49,31 +50,46 @@ class SignIn extends Component {
     }
     render() {
         return (
+            <div className="sign_container">
             <Box>
-                <Heading>Sign In Here</Heading>
+            <Heading>
+                <div className="title_signin">
+                    <span style={{ color: '#addfe2' }}>
+                    <Icon icon={idBadge} size={40}/>  
+                    </span>
+                    <span> Sign In Here</span>
+                </div>
+            </Heading>
+                
+                <Container>
                 <form onSubmit={this.handleSubmit}>
-                    <Field>
-                        <Label>Username</Label>
+                    <Field className="sign_forms">
+                        <Label className="sign_font">Username</Label>
                         <Control>
                             <Input onChange={this.handleChange} color="success" type="text" name="username" value={this.state.username} />
                         </Control>
                     </Field>
-                    <Field>
-                        <Label>Password</Label>
+                    <Field className="sign_forms">
+                        <Label className="sign_font">Password</Label>
                         <Control>
-                            <Input onChange={this.handleChange} color="success" type="text" name="password" value={this.state.password} />
+                            <Input onChange={this.handleChange} color="success" type="password" name="password" value={this.state.password} />
                         </Control>
                     </Field>
-                    <Field kind="group">
+                    <div className="btn_group">
+                    <Field kind="group" className="sign_group">
                         <Control>
-                            <Button type="primary">Submit</Button>
+                            <Button className="button is-primary is-medium" color="success" type="primary">Submit</Button>
                         </Control>
-                        <Control>
-                            <Button color="link">Cancel</Button>
-                        </Control>
+                        <Link to={'/landing'}>
+                            <Button className="button is-primary is-medium">Cancel</Button>
+                        </Link>
                     </Field>
+                    </div>
                 </form>
+                </Container>
+
             </Box>
+            </div>
         )
     }
 }

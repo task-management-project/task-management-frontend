@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { addTask } from '../actions/tasks'
+import { Icon } from 'react-icons-kit'
+import {clipboard} from 'react-icons-kit/fa/clipboard'
 import { Heading, Box, Button, Form } from 'react-bulma-components'
 const { Label, Field, Input, Control } = Form
 
@@ -29,39 +31,48 @@ class MemberTaskForm extends Component {
 
     render() {
         return (
-            <Box>
-                <Heading>Create New Task</Heading>
-            <form onSubmit={this.handleSubmit}>
+            <div className="sign_container">
+            <Box className="taskboxctr">
+                <Heading>
+                    <div className="title_signin">
+                        <span style={{ color: '#addfe2' }}>
+                        <Icon icon={clipboard} size={40}/>  
+                        </span>
+                        <span> Create New Task </span>
+                    </div>
+                </Heading>
+                <form onSubmit={this.handleSubmit}>
                 <Field>
-                    <Label>Task</Label>
+                    <Label className="sign_font">Task Name</Label>
                     <Control>
                         <Input onChange={this.handleChange} color="success" type="text" name="name" value={this.state.name} />
                     </Control>
                 </Field>
                 <Field>
-                    <Label>Description</Label>
+                    <Label className="sign_font">Description</Label>
                     <Control>
                         <Input onChange={this.handleChange} color="success" type="text" name="description" value={this.state.description} />
                     </Control>
                 </Field>
-                <Field kind="group">
+                <div className="btn_group">
+                <Field kind="group" className="taskbtn_group">
                     <Control>
-                        <Button  type="primary">Submit</Button>
+                        <Button className="button is-primary is-medium" color="success" type="primary">Submit</Button>
                     </Control>
                     <Control>
-                        <Button color="link">Cancel</Button>
+                        <Button className="button is-primary is-medium">Cancel</Button>
                     </Control>
                 </Field>
+                </div>
                 </form>
-                <br/>
-                <Link to={'/toggle'}>Go Back</Link >
-                <br/>
-                <Link to={'/memberdash'}>Task Overview</Link >
-                <br/>
-                <Link to={'/focus'}>Task Focus</Link >
-
+            
+                <div class="breadcrumbs">
+                    <Link to={'/toggle'}>Go Back      |      </Link >
+                    <Link to={'/memberdash'}>Task Overview      |     </Link >
+                    <Link to={'/focus'}>Task Focus</Link >
+                </div>
             </Box>
-
+            </div>
         )
     }
 }
