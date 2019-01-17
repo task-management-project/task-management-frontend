@@ -18,7 +18,7 @@ const reducers = combineReducers({
 
 const middleware = [
   logger,
-  thunk,
+  thunk
 ]
 
 
