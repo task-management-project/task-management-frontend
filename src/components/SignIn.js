@@ -68,7 +68,7 @@ class SignIn extends Component {
             </Heading>
                 
                 <Container>
-                <form onSubmit={this.handleSubmit}>
+                <form autocomplete="off" onSubmit={this.handleSubmit}>
                     <Field className="sign_forms">
                         <Label className="sign_font">Username</Label>
                         <Control>
