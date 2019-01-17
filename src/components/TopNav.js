@@ -6,15 +6,18 @@ import { withRouter } from 'react-router'
 import { Icon } from 'react-icons-kit'
 import {ic_view_list} from 'react-icons-kit/md/ic_view_list'
 import {github} from 'react-icons-kit/icomoon/github'
-// import request from '../utils/request'
-// import {setAuthentication} from '../actions/authentication'
 import { bindActionCreators } from 'redux';
 
 
+
 class TopNav extends React.Component {
-    state = {
-        isOpen: false,
-      }
+    constructor(props) {
+        super(props)
+        this.state = {
+            isOpen: false,
+          }
+    }
+    
     toggle = () => {
     this.setState({
         isOpen: !this.state.isOpen
@@ -40,9 +43,6 @@ class TopNav extends React.Component {
                     <Button className="button is-primary is-inverted is-outlined is-medium topbtn">
                     Create
                     </Button>
-                    <Button className="button is-primary is-inverted is-outlined is-medium topbtn">
-                    SignOut
-                    </Button>
                 </Navbar.Item>
                 </Navbar>
             </Hero.Head>
@@ -50,17 +50,15 @@ class TopNav extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-    //   user: state.auth.user
-    }
-  }
+const mapStateToProps = state => ({
+    // userId: state.authentication.user.id
+  })
   
-  function mapDispatchToProps(dispatch) {
-    return {
-    //   userLogout: bindActionCreators(userLogout, dispatch)
-    }
-  }
+  const mapDispatchToProps = dispatch => bindActionCreators({
+
+  }, dispatch)
   
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TopNav))
-  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(TopNav);
