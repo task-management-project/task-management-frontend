@@ -65,7 +65,7 @@ class SignIn extends Component {
                     <Field className="sign_forms">
                         <Label className="sign_font">Password</Label>
                         <Control>
-                            <Input onChange={this.handleChange} color="success" type="text" name="password" value={this.state.password} />
+                            <Input onChange={this.handleChange} color="success" type="password" name="password" value={this.state.password} />
                         </Control>
                     </Field>
                     <div className="btn_group">

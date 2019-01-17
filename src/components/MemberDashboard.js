@@ -11,14 +11,11 @@ class MemberDashboard extends Component {
   constructor(props) {
     super(props)
     this.state = null
-
-
   }
 
   componentDidMount = () => {
     this.props.getMemberTasks(this.props.userId)
 
-   
   }
   render() {
 

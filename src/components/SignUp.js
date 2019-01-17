@@ -53,7 +53,7 @@ class SignUp extends Component {
                     <Field className="sign_forms">
                         <Label className="sign_font">Retype Password</Label>
                         <Control>
-                            <Input onChange={this.handleChange} color="success" type="text" name="matchPassword" value={this.state.matchPassword} />
+                            <Input onChange={this.handleChange} color="success" type="password" name="matchPassword" value={this.state.matchPassword} />
                         </Control>
                     </Field>
                     <div className="btn_group">

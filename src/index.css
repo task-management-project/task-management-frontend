@@ -99,3 +99,18 @@ code {
   margin-left:28%;
   margin-right:auto;
 }
+.taskbtn_group{
+  margin-top: 5%;
+  margin-bottom: 3%;
+  margin-left:38%;
+}
+.breadcrumbs{
+  color: #00d1b2;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+.taskboxctr{
+  padding: 7%;
+}
