@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import { addTask } from '../actions/tasks'
 import { Icon } from 'react-icons-kit'
 import {clipboard} from 'react-icons-kit/fa/clipboard'
-import { Heading, Box, Button, Form } from 'react-bulma-components'
+import { Heading, Box, Button, Form, Notification } from 'react-bulma-components'
 const { Label, Field, Input, Control } = Form
 
 
@@ -14,7 +14,7 @@ class MemberTaskForm extends Component {
         super(props)
         this.state = {
             name: '',
-            description: ""
+            description: ''
         }
     }
 
@@ -26,10 +26,21 @@ class MemberTaskForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.addTask(this.props.userId, this.state)
+        if(!this.state.name.length && !this.state.description.length){
+            this.setState({showErrorMessage: true})
+        }
+        else{
+            this.props.addTask(this.props.userId, this.state)
+        }
+    }
+
+    closeErrorMessage = (e) => {
+        e.preventDefault()
+        this.setState({showErrorMessage: false})
     }
 
     render() {
+        console.log(this.props.showErrorMessage)
         return (
             <div className="sign_container">
             <Box className="taskboxctr">
@@ -54,6 +65,12 @@ class MemberTaskForm extends Component {
                         <Input onChange={this.handleChange} color="success" type="text" name="description" value={this.state.description} />
                     </Control>
                 </Field>
+                {this.state.showErrorMessage ? (
+                <Notification className="notification">
+                    Please input task name and description.
+                    <Button remove onClick={this.closeErrorMessage}/>
+                </Notification> ) : null}
+
                 <div className="btn_group">
                 <Field kind="group" className="taskbtn_group">
                     <Control>

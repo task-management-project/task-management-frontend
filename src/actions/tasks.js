@@ -1,14 +1,11 @@
 
 import request from '../utils/request'
 
-
-
 export const GET_MEMBER_TASKS = 'GET_MEMBER_TASKS'
 export const ADD_TASK = 'ADD_TASK'
+export const ADD_TASK_FAILED = 'ADD_TASK_FAILED'
 export const DELETE_TASK = 'DELETE_TASK'
 export const UPDATE_TASK = 'UPDATE_TASK'
-
-
 
 
 export const getMemberTasks = (memberId) => {
@@ -19,7 +16,7 @@ export const getMemberTasks = (memberId) => {
   }
 }
 
-export const addTask = (memberId, taskObj, history) => {
+export const addTask = (memberId, taskObj) => {
   console.log(taskObj)
   return (dispatch) => {
     request(`/users/${memberId}/tasks`,'post', taskObj)

@@ -2,9 +2,6 @@ import React from 'react'
 import { Tile, Heading, } from 'react-bulma-components'
 
 
-
-
-
 export default function TaskCard({name, description, thoughts,}) {
     return (
 
