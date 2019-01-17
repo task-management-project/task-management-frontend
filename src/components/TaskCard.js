@@ -5,11 +5,11 @@ import { Tile, Heading, Button } from 'react-bulma-components'
 
 
 
-export default function TaskCard({name, description, thoughts, deleteTask}) {
+export default function TaskCard({name, description, thoughts, deleteTask, updateTask}) {
     return (
 
         <Tile kind="parent">
-            <Tile renderAs="article" kind="child" notification color="primary">
+            <Tile onClick={updateTask} renderAs="article" kind="child" notification color="success">
                 <div className="content">
                     <Heading>{name}</Heading>
                     <Heading subtitle>{description}</Heading>

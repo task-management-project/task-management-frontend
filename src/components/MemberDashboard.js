@@ -6,7 +6,7 @@ import { Icon } from 'react-icons-kit'
 import {tasks} from 'react-icons-kit/fa/tasks'
 import { Box, Heading, Tile } from 'react-bulma-components'
 import TaskCard from './TaskCard'
-import { getMemberTasks, deleteTask } from '../actions/tasks'
+import { getMemberTasks, deleteTask, updateTask } from '../actions/tasks'
 
 
 class MemberDashboard extends Component {
@@ -31,15 +31,18 @@ class MemberDashboard extends Component {
             </span>
             <span> Task Overview</span>
           </div>
-        </Heading>
-        { console.log("my log here:", this.props.tasks)}
-        
+        </Heading> 
         <Box>
           <Tile kind="ancestor">
             <Tile size={12}>
               {
                 this.props.tasks.map(task => {
-                  return <TaskCard key={task.id} {...task} deleteTask={() => this.props.deleteTask(this.props.userId, task.id)} />
+                  return <TaskCard 
+                  key={task.id} 
+                  {...task} 
+                  deleteTask={() => this.props.deleteTask(this.props.userId, task.id)} 
+                  updateTask={() => this.props.updateTask(this.props.userId, task.id, {isFocus: !task.isFocus})}
+                  />
                 })
               }
             </Tile>
@@ -70,7 +73,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   getMemberTasks: getMemberTasks,
-  deleteTask: deleteTask
+  deleteTask: deleteTask,
+  updateTask: updateTask
 
 }, dispatch)
 

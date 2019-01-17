@@ -16,7 +16,7 @@ export const buildTeam = () => {
 
 export const viewAllTeam = (teamId) => {
   return (dispatch) => {
-    axios.get('serverPath')
+    request(`/`)
     .then(result => dispatch({type: VIEW_ALL_TEAM, payload: result.data}))
     .catch(err => console.log(err))
   }
@@ -25,7 +25,7 @@ export const viewAllTeam = (teamId) => {
 export const addUserToTeam = (userId, teamId) => {
   return (dispatch) => {
     //axios call type?
-    axios.post('serverPath')
+    request('serverPath', 'post')
     .then(result => dispatch({type: UPDATE_TEAM, payload: result.data}))
     .catch(err => console.log(err))
   }
@@ -33,8 +33,8 @@ export const addUserToTeam = (userId, teamId) => {
 
 export const deleteUserFromTeam = (userId, teamId) => {
   return(dispatch) => {
-    axios.delete('serverPath')
-    .then(result => dispatch({type: DELETE_USER_FROM_TEAM, payload: userId}))
+    request(`/users/${userId}/teams/${teamId}/members`, 'delete')
+    .then(result => dispatch({type: DELETE_USER_FROM_TEAM, payload: result.data}))
     .catch(err => console.log(err))
   }
 }
