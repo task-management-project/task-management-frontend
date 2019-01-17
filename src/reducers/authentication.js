@@ -1,5 +1,6 @@
 import {SET_AUTHENTICATION, 
-        USER_LOGIN_FAILED
+        USER_LOGIN_FAILED,
+        USER_LOGOUT
 } from '../actions/authentication'
 
 const AUTHETICATION_INITIAL_STATE = {
@@ -14,6 +15,8 @@ const authentication = (state = AUTHETICATION_INITIAL_STATE, {type, payload}) =>
       return {user: payload, pending: false}
     case USER_LOGIN_FAILED:
       return {...state, showLoginError: true}
+    case USER_LOGOUT:
+      return {...state, user: ''}
     default:
     return state
   }
