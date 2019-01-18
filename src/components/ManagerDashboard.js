@@ -48,11 +48,11 @@ class ManagerDashboard extends Component {
               </Tile>
               </Tile>
               </Box>
-              <div className="breadcrumbs">
-          <Link to={'/toggle'}>Go Back      |      </Link >
-          <Link to={'/focus'}>Focus      |     </Link >
-          <Link to={'/membertaskform'}>Add Task</Link >
-        </div>
+              <div class="breadcrumbs">
+                <Link to={'/toggle'}>Create Task     |      </Link >
+                <Link to={'/focus'}>Focus      |     </Link >
+                <Link to={'/membertaskform'}>Add Task</Link >
+            </div>
       </Box>
       </div>
       )
