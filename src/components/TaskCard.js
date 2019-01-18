@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tile, Heading, Button, Columns, Card, Content, Box } from 'react-bulma-components'
+import { Heading, Columns, Card, Box } from 'react-bulma-components'
 import { Icon } from 'react-icons-kit'
 import {ic_grade} from 'react-icons-kit/md/ic_grade'
 import {ic_delete_forever} from 'react-icons-kit/md/ic_delete_forever'
@@ -32,17 +32,6 @@ export default function TaskCard({ name, description, thoughts, isFocus, deleteT
                 </Card.Footer>
             </Card>
             </Box>
-
-                    
-            {/* < Tile onClick={updateTask} renderAs="article" kind="child" notification color={color} >
-                <div className="card_content">
-                    <Heading>{name}</Heading>
-                    <Heading subtitle>{description}</Heading>
-                    <Heading subtitle>{thoughts}</Heading>
-                    <div className="content" />
-                </div>
-                <Button className="button is-info" onClick={deleteTask}>Finished</Button>
-            </Tile > */}
 
         </Columns.Column>
 
