@@ -20,10 +20,10 @@ class ManagerDashboard extends Component {
 
   }
   render() {
-
+    console.log(this.props.dashInfo)
     return (
       <div className="taskview_container">
-      <Box classNAme="taskview_box">
+      <Box className="taskview_box">
         <Heading>
           <div className="title_signin">
             <span style={{ color: '#addfe2' }}>
@@ -35,31 +35,31 @@ class ManagerDashboard extends Component {
         <Box>
           <Tile kind="ancestor">
             <Tile size={12}>
-            {<div><MemberCard/><MemberCard/><MemberCard/></div>}
-              {/* {
-                this.props.tasks.team(member => {
+              {(this.props.dashInfo) ?
+                this.props.dashInfo.data.map((member, idx) => {
                   return <MemberCard 
-                  key={member.id} 
+                  key={idx} 
                   {...member} 
-                  deleteUserFromTeam={() => this.props.deleteUserFromTeam(member.id, this.props.teamId)} 
+                  deleteUserFromTeam={() => this.props.deleteUserFromTeam(member.user_id, member.id)} 
                   />
-                })
-              } */}
-            </Tile>
-          </Tile>
-        </Box>
-        <div class="breadcrumbs">
+                }) : 
+                null
+              }
+              </Tile>
+              </Tile>
+              </Box>
+              <div className="breadcrumbs">
           <Link to={'/toggle'}>Go Back      |      </Link >
           <Link to={'/focus'}>Focus      |     </Link >
           <Link to={'/membertaskform'}>Add Task</Link >
         </div>
       </Box>
       </div>
-    )
+      )
+    }
+    
   }
-
-}
-
+  
 
 
 
@@ -67,8 +67,8 @@ class ManagerDashboard extends Component {
 
 const mapStateToProps = state => ({
   tasks: state.tasks,
-  userId: state.authentication.user.id
-  // teamId: state.
+  userId: state.authentication.user.id,
+  dashInfo: state.manager[0]
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
