@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Box, Heading, Dropdown, Form, Button, Table } from 'react-bulma-components'
 import {buildTeam, createTeam} from '../actions/manager'
+import { Icon } from 'react-icons-kit'
+import {group} from 'react-icons-kit/fa/group'
+import {globe} from 'react-icons-kit/fa/globe'
 const { Item } = Dropdown
 const { Label, Field, Input, Control } = Form
 
@@ -31,63 +34,91 @@ class ManagerSelectTeam extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.createTeam(
-            Array.from(this.state.teamMembers), 
-            this.state.teamName,
-            this.state.teamDescription,
-            this.props.userId)
-        this.setState({teamMembers: new Set()})
-        this.props.history.push('/managerdash')
+        if(!this.state.teamName.length && !this.state.teamDescription.length){
+            this.setState({showErrorMessage: true})
+        }
+        else{
+            this.props.createTeam(
+                Array.from(this.state.teamMembers), 
+                this.state.teamName,
+                this.state.teamDescription,
+                this.props.userId)
+            this.setState({teamMembers: new Set()})
+            this.props.history.push('/managerdash')
+        }   
+    }
+
+    closeErrorMessage = (e) => {
+        e.preventDefault()
+        this.setState({showErrorMessage: false})
     }
 
     render() {
         return (
-            <div>
-            <Box>
+            <div className="sign_container">
+            <Box className="focustaskboxctr">
+            <Heading>
+                <div className="title_signin">
+                    <span style={{ color: '#addfe2' }}>
+                        <Icon icon={group} size={40}/>  
+                    </span>
+                    <span> Create New Team </span>
+                </div>
+            </Heading>
                 <form onSubmit={null}>
-                    <Field>
-                        <Label>Team Name</Label>
-                        <Control>
-                            <Input onChange={this.handleChange} color="success" type="text" name="teamName" value={this.state.teamName} />
-                        </Control>
-                    </Field>
-                    <Field>
-                        <Label>Team Description</Label>
-                        <Control>
-                            <Input onChange={this.handleChange} color="success" type="text" name="teamDescription" value={this.state.teamDescription} />
-                        </Control>
-                    </Field>
+                <Field>
+                    <Label className="sign_font">Team Name</Label>
+                    <Control>
+                        <Input onChange={this.handleChange} color="success" type="text" name="teamName" value={this.state.teamName} />
+                    </Control>
+                </Field>
+                <Field>
+                    <Label className="sign_font">Team Description</Label>
+                    <Control>
+                        <Input onChange={this.handleChange} color="success" type="text" name="teamDescription" value={this.state.teamDescription} />
+                    </Control>
+                </Field>
                 </form>
-            </Box>
-        <Box>
-            <Heading>Assemble Your Team</Heading>
-            <Dropdown value={this.state.selected} onChange={this.onChange}>
+            
+            <div className="team_select_title">
+                <span style={{ color: '#addfe2' }}>
+                    <Icon icon={globe} size={30}/>  
+                </span>
+                 Assemble Your Team
+            </div>
+            <div>
+            <Dropdown  value={this.state.selected} onChange={this.onChange}>
                 {(this.props.users) ?
-                this.props.users.map(ele => <Item value={ele.id}>{ele.username}</Item>) :
+                this.props.users.map(ele => <Item className="team_select_dropdown" value={ele.id}>{ele.username}</Item>) :
                 <Item value='Loading'>Loading</Item>}
 
             </Dropdown>
             <Box>
                 <Table>
-                    <tbody>
-                        {(this.state.teamMembers) ?
-                            (Array.from(this.state.teamMembers).map(ele => <tr><td>{this.props.users[ele-1].username}</td></tr>)) :
-                            null}
-                    </tbody>
+                <tbody className="teamselecttable">
+                    {(this.state.teamMembers) ?
+                        (Array.from(this.state.teamMembers).map(ele => <tr><td>{this.props.users[ele-1].username}</td></tr>)) :
+                        null}
+                </tbody>
                 </Table>
             </Box>
-            <br /> <br />
-            <Link to={'./toggle'}> Go Back </Link>
-            <br /> <br />
-            <Link to={'./managerdash'}>Go to Manager Dashboard</Link>
-            <Field kind="group">
+            
+            <Field className="teamselectbtn_group" kind="group">
                 <Control>
-                    <Button  type="primary" onClick={this.handleSubmit}>Submit</Button>
+                    <Button onClick={this.handleSubmit} className="button is-medium" color="success">Submit</Button>
                 </Control>
                 <Control>
-                    <Button color="link" renderAs="a">Cancel</Button>
+                    <Button renderAs="a" href="/toggle"className="button is-primary is-medium">Cancel</Button>
                 </Control>
             </Field>
+            
+            </div>
+
+            <div class="breadcrumbs">
+                <Link to={'/toggle'}>Create Task | </Link >
+                <Link to={'./managerdash'}>Manager Dashboard | </Link >
+                <Link to={'/focus'}>Focus</Link >
+            </div>
         </Box>
         
         </div>

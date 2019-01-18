@@ -43,7 +43,7 @@ class MemberTaskForm extends Component {
         console.log(this.props.showErrorMessage)
         return (
             <div className="sign_container">
-            <Box className="taskboxctr">
+            <Box className="focustaskboxctr">
                 <Heading>
                     <div className="title_signin">
                         <span style={{ color: '#addfe2' }}>
@@ -74,18 +74,18 @@ class MemberTaskForm extends Component {
                 <div className="btn_group">
                 <Field kind="group" className="taskbtn_group">
                     <Control>
-                        <Button className="button is-primary is-medium" color="success" type="primary">Submit</Button>
+                        <Button className="button is-medium" color="success">Submit</Button>
                     </Control>
                     <Control>
-                        <Button className="button is-primary is-medium">Cancel</Button>
+                        <Button renderAs="a" href="/toggle" className="button is-primary is-medium">Cancel</Button>
                     </Control>
                 </Field>
                 </div>
                 </form>
             
                 <div class="breadcrumbs">
-                    <Link to={'/toggle'}>Go Back      |      </Link >
-                    <Link to={'/memberdash'}>Task Overview      |     </Link >
+                    <Link to={'/toggle'}>Create Team | </Link >
+                    <Link to={'/memberdash'}>Task Overview | </Link >
                     <Link to={'/focus'}>Task Focus</Link >
                 </div>
             </Box>
