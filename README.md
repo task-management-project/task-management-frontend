@@ -38,7 +38,7 @@ To use this app, you can either choose below 2 options.
 ### Usage
 
 1. Main Page.
-<img width="1026" alt="7" src="https://user-images.githubusercontent.com/41387357/51406192-4523a700-1b0d-11e9-9192-ab206166b83b.png">
+<img width="1418" alt="1" src="https://user-images.githubusercontent.com/41387357/51406200-45bc3d80-1b0d-11e9-8421-f05825231839.png">
 
 2. Create an account to login.
 <img width="588" alt="2" src="https://user-images.githubusercontent.com/41387357/51406199-45bc3d80-1b0d-11e9-879d-d364bf32e900.png">
