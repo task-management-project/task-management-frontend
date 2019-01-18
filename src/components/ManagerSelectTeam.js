@@ -42,9 +42,9 @@ class ManagerSelectTeam extends Component {
                 Array.from(this.state.teamMembers), 
                 this.state.teamName,
                 this.state.teamDescription,
-                this.props.userId)
+                this.props.userId,
+                () => {this.props.history.push('/managerdash')})
             this.setState({teamMembers: new Set()})
-            this.props.history.push('/managerdash')
         }   
     }
 
