@@ -37,12 +37,23 @@ To use this app, you can either choose below 2 options.
   
 ### Usage
 
-1. Create an account to login.
-<img width="345" alt="create_account" src="https://user-images.githubusercontent.com/41387357/49666479-147c2800-fa0d-11e8-9e9e-53823c74e15c.png">
-2. Login to your account.
-<img width="337" alt="login" src="https://user-images.githubusercontent.com/41387357/49666482-1645eb80-fa0d-11e8-873f-3dc59abe8645.png">
-3. View received invoices by clicking Review.
-<img width="1147" alt="received invoices" src="https://user-images.githubusercontent.com/41387357/49666484-18a84580-fa0d-11e8-97ec-416067c0e3e8.png">
-4. Create, send and sort invoices by clicking Manage.
-<img width="1145" alt="manage invoices" src="https://user-images.githubusercontent.com/41387357/49666487-19d97280-fa0d-11e8-8f42-22b118a0d97c.png">
+1. Main Page.
+<img width="1026" alt="7" src="https://user-images.githubusercontent.com/41387357/51406192-4523a700-1b0d-11e9-9192-ab206166b83b.png">
 
+2. Create an account to login.
+<img width="588" alt="2" src="https://user-images.githubusercontent.com/41387357/51406199-45bc3d80-1b0d-11e9-879d-d364bf32e900.png">
+
+3. Login to your account.
+<img width="643" alt="3" src="https://user-images.githubusercontent.com/41387357/51406198-45bc3d80-1b0d-11e9-9b0e-504b850916e2.png">
+
+4. Choose to become member or manager.
+<img width="560" alt="4" src="https://user-images.githubusercontent.com/41387357/51406196-4523a700-1b0d-11e9-8230-77a40c533dec.png">
+
+5. Member - Create new task.
+<img width="640" alt="5" src="https://user-images.githubusercontent.com/41387357/51406195-4523a700-1b0d-11e9-8cc2-1a358d6dc525.png">
+
+6. Member - View tasks.
+<img width="1106" alt="6" src="https://user-images.githubusercontent.com/41387357/51406193-4523a700-1b0d-11e9-9ef7-087bc6a61fde.png">
+
+7. Member - View a task you are working on.
+<img width="1026" alt="7" src="https://user-images.githubusercontent.com/41387357/51406192-4523a700-1b0d-11e9-9192-ab206166b83b.png">
