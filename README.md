@@ -57,3 +57,6 @@ To use this app, you can either choose below 2 options.
 
 7. Member - View a task you are working on.
 <img width="1026" alt="7" src="https://user-images.githubusercontent.com/41387357/51406192-4523a700-1b0d-11e9-9192-ab206166b83b.png">
+
+8. Manager - Create team and choose members for team
+<img width="651" alt="8" src="https://user-images.githubusercontent.com/41387357/51406669-a6984580-1b0e-11e9-9e4b-20eb13cfc0e5.png">
