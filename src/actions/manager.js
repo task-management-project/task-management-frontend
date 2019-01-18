@@ -1,5 +1,4 @@
 import request from '../utils/request';
-import { user } from 'react-icons-kit/fa/user';
 
 export const VIEW_ALL_TEAM = 'VIEW_ALL_TEAM'
 export const CREATE_TEAM = 'CREATE_TEAM'
