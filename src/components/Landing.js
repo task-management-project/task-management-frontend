@@ -10,10 +10,10 @@ export default function Landing() {
             </Heading>
             <div className='btnctr2'>
                 <Link to={`/signin`} className="btnctr">
-                    <Button className="button is-primary is-large"> Sign In</Button>
+                    <Button className="landingbtn button is-primary is-medium"> Sign In</Button>
                 </Link>
                 <Link to={`/signup`} className="btnctr">
-                    <Button className="button is-primary is-large"> Sign Up</Button>
+                    <Button className="landingbtn button is-primary is-medium"> Sign Up</Button>
                 </Link>
             </div>
         </Box >

@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+/* font-family: 'Work Sans', sans-serif; */
+@import url('https://fonts.googleapis.com/css?family=Muli');
+/* font-family: 'Muli', sans-serif; */
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+/* font-family: 'Mukta', sans-serif; */
+@import url('https://fonts.googleapis.com/css?family=Hind');
+font-family: 'Hind', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Heebo');
+font-family: 'Heebo', sans-serif;
+
 html, body {
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -15,9 +26,13 @@ code {
   height: 800px;
   padding-top: 3rem !important;
 }
+.navtitle{
+  font-family: 'Muli', sans-serif;
+}
 .title{
   color: #00d1b2;
 }
+
 .navbar-item{
   position: absolute;
   right: 0;
@@ -31,11 +46,32 @@ code {
 }
 .topbtn{
   margin-right: 7%;
+  font-family: 'Muli', sans-serif;
 }
 .title_signin{
   color: #027564;
   letter-spacing: 1px;
-  margin: 3%;
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 4%;
+  margin-bottom: 6%;
+  text-align: center;
+}
+.team_select_title{
+  color: #027564;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 4%;
+  margin-bottom: 6%;
+  text-align: center;
+}
+.title_focus{
+  color: #027564;
+  letter-spacing: 1px;
+  font-family: 'Work Sans', sans-serif;
+  margin-top: 4%;
+  margin-bottom: 4%;
   text-align: center;
 }
 .coverbox{
@@ -43,10 +79,23 @@ code {
   background-size:  cover;
   height: 650px;
 }
+
+/* .team_select_dropdown{
+  text-align: center;
+} */
+
 .notification{
   margin-top: 5%;
 }
-
+.landingbtn {
+  font-family: 'Muli', sans-serif;
+}
+.taskformbtn{
+  font-family: 'Muli', sans-serif;
+}
+.focussubmitbtn{
+  font-family: 'Muli', sans-serif;
+}
 .btnctr{
   margin: 2%;
 }
@@ -86,11 +135,13 @@ code {
 .cardtext{
   margin-top: 3%;
   margin-bottom: 3%;
+  font-family: 'Heebo', sans-serif;
   color: #027564;
 }
 .cardtitle{
   color: #00d1b2;
   font-size: 33px;
+  font-family: 'Muli', sans-serif;
   font-weight: bold;
 }
 .iconctr{
@@ -109,8 +160,13 @@ code {
   margin-right:auto;
 }
 .taskbtn_group{
-  margin-top: 5%;
-  margin-bottom: 3%;
+  margin-top: 7%;
+  margin-bottom: 4%;
+  margin-left:38%;
+}
+.teamselectbtn_group{
+  margin-top: 7%;
+  margin-bottom: 4%;
   margin-left:38%;
 }
 .breadcrumbs{
@@ -118,9 +174,108 @@ code {
   font-size: 18px;
   font-weight: bold;
   text-align: center;
-  margin-top: 5%;
+  margin-top: 8%;
+  margin-bottom: 3%;
+}
+.focusbreadcrumbs{
+  color: #00d1b2;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 3%;
   margin-bottom: 3%;
 }
 .taskboxctr{
   padding: 7%;
+}
+.taskcard{
+  vertical-align: middle;
+  color: white;
+  text-align: left;
+  margin-left:auto;
+  margin-right:auto;
+}
+.carddescription{
+  font-family: 'Hind', sans-serif;
+  font-size: 18px;
+}
+.focuscarddescription{
+  line-height: 300%;
+  font-family: 'Hind', sans-serif;
+  font-size: 25px;
+}
+.cardthought{
+  font-family: 'Hind', sans-serif;
+  font-size: 18px;
+}
+.focuscardthought{
+  font-family: 'Hind', sans-serif;
+  font-size: 20px;
+}
+.taskcardtitle{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+  color: white;
+}
+.focuscardname{
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+  color: white;
+}
+.starforfocus{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+.boxforstars{
+  padding: 0;
+  position: relative;
+}
+.cardbtn{
+  color: white;
+  font-weight: bold;
+}
+.taskfocusbox{
+  margin-left:auto;
+  margin-right:auto;
+}
+.thoughtbox{
+  margin-top: 2%;
+  width: 97%;
+  margin-left:auto;
+  margin-right:auto;
+}
+.focuscontainer{
+  margin-top: 0;
+  padding-left: 5%;
+  padding-right: 5%;
+
+}
+.thoughtfield{
+  margin-top: 3%;
+  text-align: center;
+}
+.focusthought{
+  color: #027564;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 20px;
+}
+.teamselectfield{
+  margin-top: 3%;
+  text-align: center;
+}
+.teamselecttable{
+  color: #027564;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+.team_select_dropdown{
+  color: #027564;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
 }

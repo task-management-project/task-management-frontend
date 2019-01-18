@@ -38,7 +38,7 @@ class TopNav extends React.Component {
                 <Navbar>
                 <Navbar.Brand>
                 <NavLink to='/'> 
-                    <div>
+                    <div className="navtitle">
                         <span style={{ color: '#addfe2' }}>
                         <Icon icon={ic_view_list} size={60}/>
                         </span>

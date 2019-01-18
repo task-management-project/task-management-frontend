@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Icon } from 'react-icons-kit'
 import {chart} from 'react-icons-kit/entypo/chart'
+import {sun} from 'react-icons-kit/icomoon/sun'
 import { Box, Heading, Form, Button } from 'react-bulma-components'
 import FocusCard from './FocusCard'
 import { getMemberTasks, updateTask } from '../actions/tasks'
@@ -43,31 +44,37 @@ class MemberFocus extends Component {
             <div className="taskview_container">
                 <Box classNAme="taskview_box">
                 <Heading>
-                    <div className="title_signin">
+                    <div className="title_focus">
                         <span style={{ color: '#addfe2' }}>
                         <Icon icon={chart} size={40}/>  
                         </span>
                         <span> Task Focus Zone</span>
                     </div>
                 </Heading>
-                <Box className="taskfocusbox">
+                <Box className="focuscontainer">
                     {this.props.task ?
                         <FocusCard {...this.props.task} />
                         : null
                     }
-                        <form autocomplete="off" onSubmit={this.handleSubmit}>
+                        <form className="thoughtbox" autocomplete="off" onSubmit={this.handleSubmit}>
                             <Field>
-                                <Label>Thoughts:</Label>
+                                <Label className="focusthought">
+                                    <span style={{ color: '#00d1b2' }}>
+                                        <Icon icon={sun} size={25}/>  
+                                    </span>
+                                     Thoughts:</Label>
                                 <Control>
                                     <Input onChange={this.handleChange} color="primary" type="text" name="thoughts" value={this.state.thoughts} />
                                 </Control>
                             </Field>
                             <Control>
-                                <Button type="primary">Submit</Button>
+                                <div className="thoughtfield">
+                                    <Button className="focussubmitbtn button is-info is-medium">Submit</Button>
+                                </div>
                             </Control>
                         </form>
                 </Box>
-                    <div class="breadcrumbs">
+                    <div class="focusbreadcrumbs">
                         <Link to={'./toggle'}>Go Back      |      </Link >
                         <Link to={'/membertaskform'}>Add Task      |     </Link >
                         <Link to={'./memberdash'}>Dashboard</Link >

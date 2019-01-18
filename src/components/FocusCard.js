@@ -6,12 +6,12 @@ export default function TaskCard({name, description, thoughts,}) {
     return (
 
         <Tile kind="parent">
-            <Tile renderAs="article" kind="child" notification color="primary">
-                <div className="content">
-                    <Heading>{name}</Heading>
-                    <Heading subtitle>{description}</Heading>
-                    <Heading subtitle>{thoughts}</Heading>
-                    <div className="content" />
+            <Tile renderAs="article" kind="child" notification color="info">
+                <div className="focuscard">
+                    <Heading className="focuscardname">{name}</Heading>
+                    <Heading subtitle className="focuscarddescription">{description}</Heading>
+                    <Heading className="focuscardthought">{thoughts}</Heading>
+                    <div/>
                 </div>
             </Tile>
         </Tile >
