@@ -16,7 +16,7 @@ class ManagerDashboard extends Component {
   }
 
   componentDidMount = () => {
-    this.props.viewAllTeam(1)
+    this.props.viewAllTeam(this.props.userId)
 
   }
   render() {
@@ -48,7 +48,6 @@ class ManagerDashboard extends Component {
             </Tile>
           </Tile>
         </Box>
-       
         <div class="breadcrumbs">
           <Link to={'/toggle'}>Go Back      |      </Link >
           <Link to={'/focus'}>Focus      |     </Link >

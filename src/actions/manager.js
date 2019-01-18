@@ -14,9 +14,9 @@ export const buildTeam = () => {
   }
 }
 
-export const viewAllTeam = (teamId) => {
+export const viewAllTeam = (userId) => {
   return (dispatch) => {
-    request(`/`)
+    request(`/users/${userId}/team`)
     .then(result => dispatch({type: VIEW_ALL_TEAM, payload: result.data}))
     .catch(err => console.log(err))
   }
