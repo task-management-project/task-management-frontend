@@ -21,7 +21,7 @@ export const viewAllTeam = (userId) => {
   }
 }
 
-export const createTeam = (userIds, teamName, teamDesc, id) => {
+export const createTeam = (userIds, teamName, teamDesc, id, callback) => {
   return (dispatch) => {
     request(`/users/${id}/team`, 'post', {
       team: userIds,
@@ -29,6 +29,7 @@ export const createTeam = (userIds, teamName, teamDesc, id) => {
       description: teamDesc
     })
     .then(result => dispatch({type: CREATE_TEAM, payload: result.data}))
+    .then(callback)
     .catch(err => console.log(err))
   }
 }
