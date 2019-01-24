@@ -1,12 +1,12 @@
 
-# Task Manager
+# Singular Focus
 
-Task Manger is a simple and elegant solution for managing, monitoring, and planing projects and tasks. 
-Task Manger lets you quickly create and manage tasks and helps you focus on your priorities. For manager of project, Task manager helps you to manage your project more efficiently by providing overview page to see team member's tasks.
+Singular Focus is a simple and elegant solution for managing, monitoring, and planning projects and tasks. 
+Singular Focus lets you quickly create and manage tasks and helps you focus on your priorities. For managers of a team, Singular Focus helps you to manage your team more efficiently by providing an overview page to see all the current focus of each team member.
 
-### Deployed backend
+### Deployed frontend
 
-https://rocky-ridge-33334.herokuapp.com/
+http://singular-focus.herokuapp.com/
 
 ### Deployed backend
 
@@ -18,8 +18,8 @@ https://polar-savannah-90234.herokuapp.com/
 * Create and manage tasks. 
 * Mark tasks which user wants to focus on.
 * Create and manage team.
-* See a list of tasks members are currently working on.
-* Add and remove members for project.
+* See overview of tasks team members are currently working on.
+
 
 ### Tech/framework used
 
@@ -29,7 +29,8 @@ https://polar-savannah-90234.herokuapp.com/
 ### Introductions
 
 To use this app, you can either choose below 2 options.
-1. Go to [https://rocky-ridge-33334.herokuapp.com](https://rocky-ridge-33334.herokuapp.com).
+1. Go to [http://singular-focus.herokuapp.com/]
+(http://singular-focus.herokuapp.com/).
 2. If you run it by forking and cloning github repositories and get the source code, follow below setup process.
   * Fork and clone this repository and [backend repository](https://github.com/task-management-project/task-management-backend).
   * Run ```npm install```
@@ -46,7 +47,7 @@ To use this app, you can either choose below 2 options.
 3. Login to your account.
 <img width="643" alt="3" src="https://user-images.githubusercontent.com/41387357/51406198-45bc3d80-1b0d-11e9-9b0e-504b850916e2.png">
 
-4. Choose to become member or manager.
+4. Choose to become a member or manager.
 <img width="560" alt="4" src="https://user-images.githubusercontent.com/41387357/51406196-4523a700-1b0d-11e9-8230-77a40c533dec.png">
 
 5. Member - Create new task.
