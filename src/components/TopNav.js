@@ -42,7 +42,7 @@ class TopNav extends React.Component {
                         <span style={{ color: '#addfe2' }}>
                         <Icon icon={ic_view_list} size={60}/>
                         </span>
-                        Task Manager
+                        Singular Focus
                     </div>
                     
                 </NavLink>
