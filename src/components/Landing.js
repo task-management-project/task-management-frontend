@@ -6,7 +6,7 @@ export default function Landing() {
     return (
         <Box className="box coverbox">
             <Heading>
-                <div className="title_signin">Welcome to Task Manager!</div>
+                <div className="title_signin">Welcome to Singular Focus!</div>
             </Heading>
             <div className='btnctr2'>
                 <Link to={`/signin`} className="btnctr">
