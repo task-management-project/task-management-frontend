@@ -4,14 +4,6 @@
 Singular Focus is a simple and elegant solution for managing, monitoring, and planning projects and tasks. 
 Singular Focus lets you quickly create and manage tasks and helps you focus on your priorities. For managers of a team, Singular Focus helps you to manage your team more efficiently by providing an overview page to see all the current focus of each team member.
 
-### Deployed frontend
-
-http://singular-focus.herokuapp.com/
-
-### Deployed backend
-
-https://polar-savannah-90234.herokuapp.com/
-
 ### Features
 
 * Create and Login to your account.
@@ -27,11 +19,7 @@ https://polar-savannah-90234.herokuapp.com/
 * Backend : Node.js / Express / Knex.js / PSQL
 
 ### Introductions
-
-To use this app, you can either choose below 2 options.
-1. Go to [http://singular-focus.herokuapp.com/]
-(http://singular-focus.herokuapp.com/).
-2. If you run it by forking and cloning github repositories and get the source code, follow below setup process.
+If you run it by forking and cloning github repositories and get the source code, follow below setup process.
   * Fork and clone this repository and [backend repository](https://github.com/task-management-project/task-management-backend).
   * Run ```npm install```
   * Run ```npm start``` 
